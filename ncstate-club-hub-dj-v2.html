@@ -8,295 +8,282 @@
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
 :root {
-  --red: #CC0000;
-  --red-dark: #990000;
-  --red-light: #f5e6e6;
-  --off-white: #f5f5f5;
-  --gray-light: #e8e8e8;
-  --gray: #999;
-  --text: #1a1a1a;
-  --text-muted: #666;
-  --blue-info: #1a6fcc;
-  --blue-info-bg: #e8f0fb;
-  --green: #2e7d32;
-  --green-light: #e8f5e9;
-  --gold: #c07d00;
-  --gold-bg: #fff8e1;
-  --radius: 8px;
-  --shadow: 0 2px 8px rgba(0,0,0,0.1);
-  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+  --red:#CC0000; --red-dark:#990000; --red-light:#f5e6e6;
+  --off-white:#f5f5f5; --gray-light:#e8e8e8; --gray:#999;
+  --text:#1a1a1a; --text-muted:#666;
+  --blue:#1a6fcc; --blue-bg:#e8f0fb;
+  --green:#2e7d32; --green-light:#e8f5e9;
+  --gold:#c07d00; --gold-bg:#fff8e1;
+  --purple:#6b21a8; --purple-bg:#f3e8ff;
+  --radius:8px;
+  --shadow:0 2px 8px rgba(0,0,0,0.1);
+  --shadow-lg:0 8px 24px rgba(0,0,0,0.12);
 }
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; }
-body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--text); background: var(--off-white); min-height: 100vh; }
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);background:var(--off-white);min-height:100vh;}
 
 /* ── NAV ── */
-.topnav {
-  background: var(--red); color: #fff;
-  display: flex; align-items: center; justify-content: space-between;
-  padding: 0 32px; height: 60px;
-  position: sticky; top: 0; z-index: 200;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.2);
-}
-.nav-brand { display: flex; align-items: center; gap: 12px; text-decoration: none; color: #fff; cursor: pointer; }
-.nav-brand .ncstate-logo { display: flex; flex-direction: column; line-height: 1; }
-.nav-brand .ncstate-logo span:first-child { font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.1rem; letter-spacing: 0.05em; }
-.nav-brand .ncstate-logo span:last-child { font-family: 'Montserrat', sans-serif; font-weight: 400; font-size: 0.7rem; letter-spacing: 0.12em; opacity: 0.9; }
-.nav-divider { width: 1px; height: 28px; background: rgba(255,255,255,0.3); }
-.nav-brand .hub-name { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; }
-.nav-links { display: flex; gap: 4px; align-items: center; }
-.nav-link { color: rgba(255,255,255,0.85); background: transparent; border: none; padding: 8px 14px; border-radius: 4px; font-family: 'Source Sans 3', sans-serif; font-size: 0.9rem; font-weight: 500; cursor: pointer; transition: background 0.15s; }
-.nav-link:hover, .nav-link.active { background: rgba(255,255,255,0.15); color: #fff; }
-.nav-avatar {
-  width: 34px; height: 34px; border-radius: 50%;
-  background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.6);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem; color: #fff;
-  cursor: pointer; position: relative; transition: background 0.15s;
-}
-.nav-avatar:hover { background: rgba(255,255,255,0.4); }
-.notif-dot { position: absolute; top: -2px; right: -2px; width: 10px; height: 10px; background: #fbbf24; border-radius: 50%; border: 2px solid var(--red); }
+.topnav{background:var(--red);color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 32px;height:60px;position:sticky;top:0;z-index:200;box-shadow:0 2px 8px rgba(0,0,0,0.2);}
+.nav-brand{display:flex;align-items:center;gap:12px;color:#fff;cursor:pointer;}
+.nav-brand .ncstate-logo{display:flex;flex-direction:column;line-height:1;}
+.nav-brand .ncstate-logo span:first-child{font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;letter-spacing:0.05em;}
+.nav-brand .ncstate-logo span:last-child{font-family:'Montserrat',sans-serif;font-weight:400;font-size:0.7rem;letter-spacing:0.12em;opacity:0.9;}
+.nav-divider{width:1px;height:28px;background:rgba(255,255,255,0.3);}
+.nav-brand .hub-name{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;}
+.nav-links{display:flex;gap:4px;align-items:center;}
+.nav-link{color:rgba(255,255,255,0.85);background:transparent;border:none;padding:8px 14px;border-radius:4px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;font-weight:500;cursor:pointer;transition:background 0.15s;}
+.nav-link:hover,.nav-link.active{background:rgba(255,255,255,0.15);color:#fff;}
+.nav-avatar{width:34px;height:34px;border-radius:50%;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;color:#fff;cursor:pointer;position:relative;transition:background 0.15s;}
+.nav-avatar:hover{background:rgba(255,255,255,0.4);}
+.notif-dot{position:absolute;top:-2px;right:-2px;width:10px;height:10px;background:#fbbf24;border-radius:50%;border:2px solid var(--red);}
 
 /* ── PROFILE DROPDOWN ── */
-.profile-dropdown {
-  position: absolute; top: 52px; right: 32px;
-  width: 320px;
-  background: #fff; border: 1px solid var(--gray-light);
-  border-radius: var(--radius); box-shadow: var(--shadow-lg);
-  z-index: 300; overflow: hidden;
-  animation: dropIn 0.2s ease;
-  display: none;
-}
-.profile-dropdown.open { display: block; }
-@keyframes dropIn { from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)} }
-.pd-header {
-  background: var(--red); color: #fff;
-  padding: 20px;
-  display: flex; align-items: center; gap: 14px;
-}
-.pd-avatar {
-  width: 52px; height: 52px; border-radius: 50%;
-  background: rgba(255,255,255,0.25); border: 2px solid rgba(255,255,255,0.6);
-  display: flex; align-items: center; justify-content: center;
-  font-family: 'Montserrat', sans-serif; font-weight: 900; font-size: 1.1rem; color: #fff;
-  flex-shrink: 0;
-}
-.pd-info h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1rem; }
-.pd-info span { font-size: 0.8rem; opacity: 0.85; }
-.pd-body { padding: 16px; }
-.pd-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 8px; margin-bottom: 14px; }
-.pd-stat { text-align: center; background: var(--off-white); border-radius: 6px; padding: 10px 6px; }
-.pd-stat strong { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 800; color: var(--red); display: block; }
-.pd-stat span { font-size: 0.7rem; color: var(--text-muted); }
-.pd-section-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.75rem; letter-spacing: 0.08em; text-transform: uppercase; color: var(--text-muted); margin-bottom: 8px; }
-.pd-badges { display: flex; flex-direction: column; gap: 6px; margin-bottom: 14px; }
-.pd-badge { display: flex; align-items: center; gap: 8px; padding: 8px 10px; background: var(--off-white); border-radius: 6px; font-size: 0.83rem; }
-.pd-badge .emoji { font-size: 1rem; }
-.pd-badge strong { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.82rem; display: block; }
-.pd-badge span { font-size: 0.72rem; color: var(--text-muted); }
-.pd-links { border-top: 1px solid var(--gray-light); padding-top: 12px; display: flex; flex-direction: column; gap: 4px; }
-.pd-link { background: none; border: none; text-align: left; padding: 8px 10px; border-radius: 6px; font-family: 'Source Sans 3', sans-serif; font-size: 0.88rem; cursor: pointer; color: var(--text); width: 100%; display: flex; align-items: center; gap: 8px; transition: background 0.15s; }
-.pd-link:hover { background: var(--off-white); }
-.pd-link.danger { color: #c00; }
+.profile-dropdown{position:absolute;top:52px;right:0;width:320px;background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);box-shadow:var(--shadow-lg);z-index:300;overflow:hidden;display:none;}
+.profile-dropdown.open{display:block;animation:dropIn 0.2s ease;}
+@keyframes dropIn{from{opacity:0;transform:translateY(-8px)}to{opacity:1;transform:translateY(0)}}
+.pd-header{background:var(--red);color:#fff;padding:20px;display:flex;align-items:center;gap:14px;}
+.pd-avatar{width:52px;height:52px;border-radius:50%;background:rgba(255,255,255,0.25);border:2px solid rgba(255,255,255,0.6);display:flex;align-items:center;justify-content:center;font-family:'Montserrat',sans-serif;font-weight:900;font-size:1.1rem;color:#fff;flex-shrink:0;}
+.pd-info h3{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1rem;}
+.pd-info span{font-size:0.8rem;opacity:0.85;}
+.pd-body{padding:16px;}
+.pd-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px;}
+.pd-stat{text-align:center;background:var(--off-white);border-radius:6px;padding:10px 6px;}
+.pd-stat strong{font-family:'Montserrat',sans-serif;font-size:1.3rem;font-weight:800;color:var(--red);display:block;}
+.pd-stat span{font-size:0.7rem;color:var(--text-muted);}
+.pd-section-title{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.08em;text-transform:uppercase;color:var(--text-muted);margin-bottom:8px;}
+.pd-badges{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
+.pd-badge{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--off-white);border-radius:6px;font-size:0.83rem;}
+.pd-badge .emoji{font-size:1rem;}
+.pd-badge strong{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;display:block;}
+.pd-badge span{font-size:0.72rem;color:var(--text-muted);}
+.pd-links{border-top:1px solid var(--gray-light);padding-top:12px;display:flex;flex-direction:column;gap:4px;}
+.pd-link{background:none;border:none;text-align:left;padding:8px 10px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;cursor:pointer;color:var(--text);width:100%;display:flex;align-items:center;gap:8px;transition:background 0.15s;}
+.pd-link:hover{background:var(--off-white);}
+.pd-link.danger{color:#c00;}
 
 /* ── PAGES ── */
-.page { display: none; }
-.page.active { display: block; }
+.page{display:none;}
+.page.active{display:block;}
 
 /* ── HERO BANNER ── */
-.hero-banner { background: var(--red); color: #fff; position: relative; overflow: hidden; min-height: 220px; }
-.hero-banner::before { content:''; position:absolute; inset:0; background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E"); }
-.banner-slider { position:relative; display:flex; align-items:center; justify-content:space-between; padding:40px 48px; min-height:220px; }
-.banner-content { position:relative; z-index:1; max-width:700px; }
-.banner-tag { display:inline-block; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.3); border-radius:100px; padding:3px 12px; font-size:0.72rem; font-weight:600; letter-spacing:0.1em; text-transform:uppercase; margin-bottom:12px; }
-.banner-title { font-family:'Montserrat',sans-serif; font-size:clamp(1.5rem,3vw,2.2rem); font-weight:800; line-height:1.15; margin-bottom:10px; }
-.banner-sub { font-size:1rem; opacity:0.9; margin-bottom:20px; }
-.banner-actions { display:flex; gap:10px; flex-wrap:wrap; }
-.btn-banner-primary { background:#fff; color:var(--red); border:none; padding:10px 22px; border-radius:var(--radius); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.85rem; cursor:pointer; transition:transform 0.15s, box-shadow 0.15s; }
-.btn-banner-primary:hover { transform:translateY(-1px); box-shadow:0 4px 12px rgba(0,0,0,0.2); }
-.btn-banner-outline { background:transparent; color:#fff; border:2px solid rgba(255,255,255,0.6); padding:10px 22px; border-radius:var(--radius); font-family:'Montserrat',sans-serif; font-weight:600; font-size:0.85rem; cursor:pointer; transition:background 0.15s; }
-.btn-banner-outline:hover { background:rgba(255,255,255,0.1); }
-.banner-nav { display:flex; align-items:center; gap:10px; position:relative; z-index:1; }
-.banner-arrow { width:36px; height:36px; border-radius:50%; background:rgba(255,255,255,0.2); border:1px solid rgba(255,255,255,0.4); color:#fff; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
-.banner-arrow:hover { background:rgba(255,255,255,0.3); }
-.banner-dots { display:flex; gap:6px; position:absolute; bottom:16px; left:50%; transform:translateX(-50%); }
-.banner-dot { width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,0.4); cursor:pointer; transition:background 0.2s; }
-.banner-dot.active { background:#fff; }
+.hero-banner{background:var(--red);color:#fff;position:relative;overflow:hidden;min-height:220px;}
+.hero-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
+.banner-slider{position:relative;display:flex;align-items:center;justify-content:space-between;padding:40px 48px;min-height:220px;}
+.banner-content{position:relative;z-index:1;max-width:700px;}
+.banner-tag{display:inline-block;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:100px;padding:3px 12px;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
+.banner-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;line-height:1.15;margin-bottom:10px;}
+.banner-sub{font-size:1rem;opacity:0.9;margin-bottom:20px;}
+.banner-actions{display:flex;gap:10px;flex-wrap:wrap;}
+.btn-banner-primary{background:#fff;color:var(--red);border:none;padding:10px 22px;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;cursor:pointer;transition:transform 0.15s,box-shadow 0.15s;}
+.btn-banner-primary:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,0.2);}
+.btn-banner-outline{background:transparent;color:#fff;border:2px solid rgba(255,255,255,0.6);padding:10px 22px;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.85rem;cursor:pointer;transition:background 0.15s;}
+.btn-banner-outline:hover{background:rgba(255,255,255,0.1);}
+.banner-nav{display:flex;align-items:center;gap:10px;position:relative;z-index:1;}
+.banner-arrow{width:36px;height:36px;border-radius:50%;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.4);color:#fff;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
+.banner-arrow:hover{background:rgba(255,255,255,0.3);}
+.banner-dots{display:flex;gap:6px;position:absolute;bottom:16px;left:50%;transform:translateX(-50%);}
+.banner-dot{width:8px;height:8px;border-radius:50%;background:rgba(255,255,255,0.4);cursor:pointer;transition:background 0.2s;}
+.banner-dot.active{background:#fff;}
 
 /* ── REC BANNER ── */
-.rec-banner { background:var(--blue-info-bg); border-top:3px solid var(--blue-info); padding:16px 32px; display:flex; align-items:center; gap:14px; flex-wrap:wrap; }
-.rec-banner-icon { color:var(--blue-info); font-size:1.2rem; flex-shrink:0; }
-.rec-banner-text { flex:1; }
-.rec-banner-text strong { color:var(--blue-info); font-weight:600; display:block; font-size:0.95rem; }
-.rec-banner-text span { font-size:0.85rem; color:var(--text-muted); }
-.rec-pills { display:flex; gap:8px; flex-wrap:wrap; }
-.rec-pill { background:var(--red); color:#fff; border:none; padding:5px 14px; border-radius:100px; font-size:0.8rem; font-weight:600; cursor:pointer; transition:background 0.15s, transform 0.15s; }
-.rec-pill:hover { background:var(--red-dark); transform:translateY(-1px); }
+.rec-banner{background:var(--blue-bg);border-top:3px solid var(--blue);padding:16px 32px;display:flex;align-items:center;gap:14px;flex-wrap:wrap;}
+.rec-banner-icon{color:var(--blue);font-size:1.2rem;flex-shrink:0;}
+.rec-banner-text{flex:1;}
+.rec-banner-text strong{color:var(--blue);font-weight:600;display:block;font-size:0.95rem;}
+.rec-banner-text span{font-size:0.85rem;color:var(--text-muted);}
+.rec-pills{display:flex;gap:8px;flex-wrap:wrap;}
+.rec-pill{background:var(--red);color:#fff;border:none;padding:5px 14px;border-radius:100px;font-size:0.8rem;font-weight:600;cursor:pointer;transition:background 0.15s,transform 0.15s;}
+.rec-pill:hover{background:var(--red-dark);transform:translateY(-1px);}
 
 /* ── MAIN ── */
-.main-content { max-width:1280px; margin:0 auto; padding:32px; }
-.section-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
-.section-title { font-family:'Montserrat',sans-serif; font-size:1.2rem; font-weight:700; }
-.section-link { color:var(--red); font-size:0.85rem; font-weight:600; text-decoration:none; cursor:pointer; }
-.section-link:hover { opacity:0.75; }
+.main-content{max-width:1280px;margin:0 auto;padding:32px;}
+.section-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.section-title{font-family:'Montserrat',sans-serif;font-size:1.2rem;font-weight:700;}
+.section-link{color:var(--red);font-size:0.85rem;font-weight:600;cursor:pointer;}
+.section-link:hover{opacity:0.75;}
 
 /* ── QUICK CARDS ── */
-.quick-grid { display:grid; grid-template-columns:repeat(auto-fit, minmax(180px,1fr)); gap:16px; margin-bottom:36px; }
-.quick-card { background:#fff; border:1px solid var(--gray-light); border-radius:var(--radius); padding:24px 20px; cursor:pointer; transition:box-shadow 0.2s, transform 0.2s, border-color 0.2s; }
-.quick-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); border-color:var(--red); }
-.quick-icon { width:42px; height:42px; border-radius:50%; display:flex; align-items:center; justify-content:center; font-size:1.2rem; margin-bottom:14px; }
-.icon-red{background:#fce8e8;} .icon-green{background:var(--green-light);} .icon-blue{background:var(--blue-info-bg);} .icon-gold{background:var(--gold-bg);} .icon-purple{background:#f3e8ff;}
-.quick-card h3 { font-family:'Montserrat',sans-serif; font-size:0.95rem; font-weight:700; margin-bottom:6px; }
-.quick-card p { font-size:0.8rem; color:var(--text-muted); line-height:1.5; }
+.quick-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:16px;margin-bottom:36px;}
+.quick-card{background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);padding:24px 20px;cursor:pointer;transition:box-shadow 0.2s,transform 0.2s,border-color 0.2s;}
+.quick-card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);border-color:var(--red);}
+.quick-icon{width:42px;height:42px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.2rem;margin-bottom:14px;}
+.icon-red{background:#fce8e8;} .icon-green{background:var(--green-light);} .icon-blue{background:var(--blue-bg);} .icon-gold{background:var(--gold-bg);} .icon-purple{background:var(--purple-bg);}
+.quick-card h3{font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:6px;}
+.quick-card p{font-size:0.8rem;color:var(--text-muted);line-height:1.5;}
+
+/* ── TAB BAR ── */
+.tab-bar{display:flex;gap:4px;border-bottom:2px solid var(--gray-light);margin-bottom:24px;}
+.tab{padding:10px 20px;background:transparent;border:none;font-family:'Montserrat',sans-serif;font-size:0.85rem;font-weight:600;color:var(--text-muted);cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px;transition:color 0.15s,border-color 0.15s;}
+.tab:hover{color:var(--text);}
+.tab.active{color:var(--red);border-bottom-color:var(--red);}
 
 /* ── SEARCH ── */
-.search-bar { display:flex; gap:10px; margin-bottom:28px; flex-wrap:wrap; }
-.search-input-wrap { flex:1; min-width:220px; position:relative; }
-.search-input-wrap input { width:100%; padding:10px 16px 10px 40px; border:1px solid var(--gray-light); border-radius:var(--radius); font-family:'Source Sans 3',sans-serif; font-size:0.9rem; background:#fff; outline:none; transition:border-color 0.2s; }
-.search-input-wrap input:focus { border-color:var(--red); }
-.search-icon { position:absolute; left:12px; top:50%; transform:translateY(-50%); color:var(--gray); }
-.filter-btn { padding:10px 18px; border:1px solid var(--gray-light); border-radius:var(--radius); background:#fff; font-size:0.85rem; font-weight:500; cursor:pointer; transition:border-color 0.2s, background 0.2s; }
-.filter-btn:hover,.filter-btn.active { border-color:var(--red); background:var(--red-light); color:var(--red); }
+.search-bar{display:flex;gap:10px;margin-bottom:28px;flex-wrap:wrap;}
+.search-input-wrap{flex:1;min-width:220px;position:relative;}
+.search-input-wrap input{width:100%;padding:10px 16px 10px 40px;border:1px solid var(--gray-light);border-radius:var(--radius);font-family:'Source Sans 3',sans-serif;font-size:0.9rem;background:#fff;outline:none;transition:border-color 0.2s;}
+.search-input-wrap input:focus{border-color:var(--red);}
+.search-icon{position:absolute;left:12px;top:50%;transform:translateY(-50%);color:var(--gray);}
+.filter-btn{padding:10px 18px;border:1px solid var(--gray-light);border-radius:var(--radius);background:#fff;font-size:0.85rem;font-weight:500;cursor:pointer;transition:border-color 0.2s,background 0.2s;}
+.filter-btn:hover,.filter-btn.active{border-color:var(--red);background:var(--red-light);color:var(--red);}
 
-/* ── CLUB CARDS ── */
-.clubs-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(280px,1fr)); gap:20px; }
-.club-card { background:#fff; border:1px solid var(--gray-light); border-radius:var(--radius); overflow:hidden; transition:box-shadow 0.2s, transform 0.2s; }
-.club-card:hover { box-shadow:var(--shadow-lg); transform:translateY(-2px); }
-.club-card-banner { height:80px; display:flex; align-items:center; justify-content:center; font-size:2.5rem; }
-.club-card-body { padding:16px 18px 20px; }
-.club-card-tags { display:flex; gap:6px; flex-wrap:wrap; margin-bottom:8px; }
-.tag { padding:2px 10px; border-radius:100px; font-size:0.72rem; font-weight:600; letter-spacing:0.04em; text-transform:uppercase; }
-.tag-red{background:#fce8e8;color:var(--red);} .tag-blue{background:var(--blue-info-bg);color:var(--blue-info);}
+/* ── CLUB / EVENT CARDS ── */
+.cards-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:20px;}
+.card{background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);overflow:hidden;transition:box-shadow 0.2s,transform 0.2s;}
+.card:hover{box-shadow:var(--shadow-lg);transform:translateY(-2px);}
+.card-banner{height:80px;display:flex;align-items:center;justify-content:center;font-size:2.5rem;}
+.card-body{padding:16px 18px 20px;}
+.card-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:8px;}
+.tag{padding:2px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;letter-spacing:0.04em;text-transform:uppercase;}
+.tag-red{background:#fce8e8;color:var(--red);} .tag-blue{background:var(--blue-bg);color:var(--blue);}
 .tag-green{background:var(--green-light);color:var(--green);} .tag-gold{background:var(--gold-bg);color:var(--gold);}
-.tag-purple{background:#f3e8ff;color:#6b21a8;}
-.club-card h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; margin-bottom:6px; }
-.club-card p { font-size:0.85rem; color:var(--text-muted); line-height:1.5; margin-bottom:14px; }
-.club-card-footer { display:flex; align-items:center; justify-content:space-between; flex-wrap:wrap; gap:8px; }
-.member-count { font-size:0.8rem; color:var(--text-muted); }
-.btn-join { background:var(--red); color:#fff; border:none; padding:6px 16px; border-radius:6px; font-size:0.8rem; font-weight:600; cursor:pointer; font-family:'Montserrat',sans-serif; transition:background 0.15s; }
-.btn-join:hover { background:var(--red-dark); }
-.btn-joined { background:var(--green-light); color:var(--green); border:1px solid var(--green); padding:6px 16px; border-radius:6px; font-size:0.8rem; font-weight:600; cursor:default; font-family:'Montserrat',sans-serif; }
+.tag-purple{background:var(--purple-bg);color:var(--purple);}
+.card h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:1rem;margin-bottom:6px;}
+.card p{font-size:0.85rem;color:var(--text-muted);line-height:1.5;margin-bottom:14px;}
+.card-footer{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.member-count{font-size:0.8rem;color:var(--text-muted);}
+.btn-join{background:var(--red);color:#fff;border:none;padding:6px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;cursor:pointer;font-family:'Montserrat',sans-serif;transition:background 0.15s;}
+.btn-join:hover{background:var(--red-dark);}
+.btn-joined{background:var(--green-light);color:var(--green);border:1px solid var(--green);padding:6px 16px;border-radius:6px;font-size:0.8rem;font-weight:600;font-family:'Montserrat',sans-serif;}
+/* Event-specific card style */
+.card.event-card .card-banner{height:70px;}
+.event-date-badge{display:inline-flex;align-items:center;gap:6px;background:var(--blue-bg);color:var(--blue);border-radius:6px;padding:4px 10px;font-size:0.78rem;font-weight:600;margin-bottom:8px;}
+
+/* ── MY CLUBS PAGE ── */
+.my-clubs-layout{display:grid;grid-template-columns:260px 1fr;gap:24px;align-items:start;}
+.club-picker{background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);}
+.club-picker-header{background:var(--red);color:#fff;padding:14px 18px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;}
+.club-picker-item{display:flex;align-items:center;gap:12px;padding:14px 16px;cursor:pointer;border-bottom:1px solid var(--gray-light);transition:background 0.15s;}
+.club-picker-item:last-child{border-bottom:none;}
+.club-picker-item:hover{background:var(--off-white);}
+.club-picker-item.active{background:var(--red-light);border-left:3px solid var(--red);}
+.picker-emoji{font-size:1.5rem;flex-shrink:0;}
+.picker-info strong{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.88rem;display:block;}
+.picker-info span{font-size:0.75rem;color:var(--text-muted);}
+.picker-arrow{margin-left:auto;color:var(--gray);font-size:0.9rem;}
+.club-picker-item.active .picker-arrow{color:var(--red);}
+
+/* Club detail panel */
+.club-detail{background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);box-shadow:var(--shadow);overflow:hidden;}
+.club-detail-banner{height:100px;display:flex;align-items:center;justify-content:center;font-size:3.5rem;position:relative;}
+.club-detail-body{padding:24px;}
+.club-detail-title{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.4rem;margin-bottom:4px;}
+.club-detail-sub{font-size:0.88rem;color:var(--text-muted);margin-bottom:16px;}
+.detail-tags{display:flex;gap:6px;flex-wrap:wrap;margin-bottom:20px;}
+.detail-info-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:20px;}
+.detail-info-item{background:var(--off-white);border-radius:8px;padding:12px 14px;}
+.detail-info-item .lbl{font-size:0.72rem;font-weight:600;color:var(--text-muted);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:3px;}
+.detail-info-item .val{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;}
+.detail-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.7;margin-bottom:20px;padding:14px;background:var(--off-white);border-radius:8px;}
+.detail-actions{display:flex;gap:10px;flex-wrap:wrap;}
+/* Event detail extras */
+.session-list{display:flex;flex-direction:column;gap:8px;margin-bottom:20px;}
+.session-item{display:flex;align-items:center;gap:10px;padding:10px 12px;border:1px solid var(--gray-light);border-radius:8px;font-size:0.85rem;}
+.session-item.done{background:var(--green-light);border-color:#a5d6a7;}
+.session-item.upcoming-s{background:var(--gold-bg);border-color:#ffe082;}
+.s-badge{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;padding:2px 8px;border-radius:4px;flex-shrink:0;}
+.s-done{background:var(--green);color:#fff;} .s-next{background:var(--gold);color:#fff;} .s-soon{background:var(--gray-light);color:var(--text-muted);}
+.session-item strong{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;display:block;}
+.session-item span{font-size:0.75rem;color:var(--text-muted);}
+.checklist{display:flex;flex-direction:column;gap:6px;margin-bottom:20px;}
+.check-item{display:flex;align-items:center;gap:10px;padding:8px 12px;border:1px solid var(--gray-light);border-radius:6px;font-size:0.85rem;}
+.chk{width:18px;height:18px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:0.65rem;flex-shrink:0;}
+.chk-done{background:var(--green);color:#fff;}
+.chk-warn{background:#fbbf24;color:#fff;}
+.chk-todo{background:var(--gray-light);color:var(--gray);border:1px solid #ddd;}
+
+/* ── SHARED FORM STYLES ── */
+.form-group{margin-bottom:14px;}
+.form-group label{display:block;font-size:0.82rem;font-weight:600;margin-bottom:5px;}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:9px 12px;border:1px solid var(--gray-light);border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;outline:none;transition:border-color 0.2s;color:var(--text);}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--red);}
+.form-group textarea{min-height:80px;resize:vertical;}
+.btn-primary{background:var(--red);color:#fff;border:none;padding:10px 22px;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.88rem;cursor:pointer;transition:background 0.15s;}
+.btn-primary:hover{background:var(--red-dark);}
+.btn-secondary{background:#fff;color:var(--text);border:1px solid var(--gray-light);padding:10px 22px;border-radius:var(--radius);font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.88rem;cursor:pointer;transition:background 0.15s;}
+.btn-secondary:hover{background:var(--off-white);}
+.stats-row{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:28px;}
+.stat-box{text-align:center;padding:14px;background:var(--off-white);border-radius:8px;border:1px solid var(--gray-light);}
+.stat-box .num{font-family:'Montserrat',sans-serif;font-size:1.8rem;font-weight:800;color:var(--red);display:block;}
+.stat-box .lbl{font-size:0.75rem;color:var(--text-muted);}
 
 /* ── MESSAGING ── */
-.msg-layout { display:grid; grid-template-columns:280px 1fr; background:#fff; border:1px solid var(--gray-light); border-radius:var(--radius); overflow:hidden; height:calc(100vh - 200px); min-height:500px; box-shadow:var(--shadow); }
-.msg-sidebar { border-right:1px solid var(--gray-light); display:flex; flex-direction:column; }
-.msg-sidebar-header { padding:16px; border-bottom:1px solid var(--gray-light); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.95rem; display:flex; align-items:center; justify-content:space-between; }
-.msg-sidebar-header button { background:var(--red); color:#fff; border:none; width:28px; height:28px; border-radius:50%; font-size:1.1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; }
-.msg-search { padding:10px 12px; border-bottom:1px solid var(--gray-light); }
-.msg-search input { width:100%; padding:7px 12px; border:1px solid var(--gray-light); border-radius:20px; font-size:0.82rem; outline:none; font-family:'Source Sans 3',sans-serif; }
-.msg-list { flex:1; overflow-y:auto; }
-.msg-thread { padding:12px 14px; cursor:pointer; border-bottom:1px solid rgba(0,0,0,0.05); display:flex; gap:10px; transition:background 0.1s; }
-.msg-thread:hover { background:var(--off-white); }
-.msg-thread.active { background:var(--red-light); border-left:3px solid var(--red); }
-.msg-avatar { width:38px; height:38px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:1.2rem; }
-.msg-thread-info { flex:1; min-width:0; }
-.msg-thread-name { font-family:'Montserrat',sans-serif; font-weight:600; font-size:0.88rem; display:flex; justify-content:space-between; }
-.msg-thread-time { font-size:0.72rem; color:var(--gray); font-weight:400; }
-.msg-thread-preview { font-size:0.8rem; color:var(--text-muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
-.msg-unread { min-width:18px; height:18px; border-radius:9px; background:var(--red); color:#fff; font-size:0.7rem; font-weight:700; display:flex; align-items:center; justify-content:center; padding:0 4px; }
-.msg-main { display:flex; flex-direction:column; }
-.msg-main-header { padding:14px 20px; border-bottom:1px solid var(--gray-light); display:flex; align-items:center; gap:12px; }
-.msg-main-header .msg-avatar { width:40px; height:40px; }
-.msg-main-info { flex:1; }
-.msg-main-info strong { font-family:'Montserrat',sans-serif; font-size:0.95rem; font-weight:700; display:block; }
-.msg-main-info span { font-size:0.78rem; color:var(--gray); }
-.msg-actions { display:flex; gap:8px; }
-.msg-action-btn { background:var(--off-white); border:1px solid var(--gray-light); padding:6px 12px; border-radius:6px; font-size:0.78rem; cursor:pointer; display:flex; align-items:center; gap:4px; transition:background 0.15s; }
-.msg-action-btn:hover { background:var(--gray-light); }
-.msg-body { flex:1; overflow-y:auto; padding:20px; display:flex; flex-direction:column; gap:16px; }
-.msg-bubble-wrap { display:flex; gap:10px; }
-.msg-bubble-wrap.mine { flex-direction:row-reverse; }
-.bubble-avatar { width:32px; height:32px; border-radius:50%; flex-shrink:0; display:flex; align-items:center; justify-content:center; font-size:0.9rem; }
-.bubble { max-width:68%; padding:10px 14px; border-radius:14px; font-size:0.88rem; line-height:1.5; }
-.bubble-other { background:var(--off-white); border-radius:2px 14px 14px 14px; }
-.bubble-mine { background:var(--red); color:#fff; border-radius:14px 2px 14px 14px; }
-.bubble-time { font-size:0.7rem; color:var(--gray); margin-top:4px; }
-.msg-input-area { padding:14px 16px; border-top:1px solid var(--gray-light); display:flex; gap:10px; align-items:flex-end; }
-.msg-input-area textarea { flex:1; padding:10px 14px; border:1px solid var(--gray-light); border-radius:20px; font-family:'Source Sans 3',sans-serif; font-size:0.9rem; resize:none; outline:none; max-height:100px; transition:border-color 0.2s; }
-.msg-input-area textarea:focus { border-color:var(--red); }
-.send-btn { background:var(--red); color:#fff; border:none; width:40px; height:40px; border-radius:50%; font-size:1rem; cursor:pointer; display:flex; align-items:center; justify-content:center; transition:background 0.15s, transform 0.15s; }
-.send-btn:hover { background:var(--red-dark); transform:scale(1.05); }
-
-/* ── MANAGEMENT ── */
-.mgmt-grid { display:grid; grid-template-columns:1fr 1fr; gap:24px; }
-.mgmt-card { background:#fff; border:1px solid var(--gray-light); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
-.mgmt-card h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:1rem; margin-bottom:18px; display:flex; align-items:center; gap:8px; padding-bottom:12px; border-bottom:2px solid var(--gray-light); }
-.mgmt-card h3 .icon { color:var(--red); }
-.form-group { margin-bottom:14px; }
-.form-group label { display:block; font-size:0.82rem; font-weight:600; margin-bottom:5px; }
-.form-group input,.form-group select,.form-group textarea { width:100%; padding:9px 12px; border:1px solid var(--gray-light); border-radius:6px; font-family:'Source Sans 3',sans-serif; font-size:0.88rem; outline:none; transition:border-color 0.2s; color:var(--text); }
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus { border-color:var(--red); }
-.form-group textarea { min-height:80px; resize:vertical; }
-.btn-primary { background:var(--red); color:#fff; border:none; padding:10px 22px; border-radius:var(--radius); font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.88rem; cursor:pointer; transition:background 0.15s; }
-.btn-primary:hover { background:var(--red-dark); }
-.btn-secondary { background:#fff; color:var(--text); border:1px solid var(--gray-light); padding:10px 22px; border-radius:var(--radius); font-family:'Montserrat',sans-serif; font-weight:600; font-size:0.88rem; cursor:pointer; transition:background 0.15s; }
-.btn-secondary:hover { background:var(--off-white); }
-.my-clubs-list { display:flex; flex-direction:column; gap:10px; }
-.my-club-item { display:flex; align-items:center; gap:12px; padding:12px; border:1px solid var(--gray-light); border-radius:8px; transition:border-color 0.2s; }
-.my-club-item:hover { border-color:var(--red); }
-.my-club-emoji { font-size:1.8rem; }
-.my-club-info { flex:1; }
-.my-club-info strong { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; display:block; }
-.my-club-info span { font-size:0.78rem; color:var(--text-muted); }
-.my-club-actions { display:flex; gap:6px; }
-.btn-sm { padding:4px 12px; border-radius:5px; font-size:0.75rem; font-weight:600; cursor:pointer; font-family:'Montserrat',sans-serif; }
-.btn-sm-red { background:var(--red-light); color:var(--red); border:1px solid #f5c6c6; }
-.btn-sm-red:hover { background:#f5c6c6; }
-.btn-sm-gray { background:var(--off-white); color:var(--text); border:1px solid var(--gray-light); }
-.btn-sm-gray:hover { background:var(--gray-light); }
-.stats-row { display:grid; grid-template-columns:repeat(3,1fr); gap:12px; margin-bottom:20px; }
-.stat-box { text-align:center; padding:14px; background:var(--off-white); border-radius:8px; border:1px solid var(--gray-light); }
-.stat-box .num { font-family:'Montserrat',sans-serif; font-size:1.8rem; font-weight:800; color:var(--red); display:block; }
-.stat-box .lbl { font-size:0.75rem; color:var(--text-muted); }
-.session-list { display:flex; flex-direction:column; gap:8px; }
-.session-item { display:flex; align-items:center; gap:10px; padding:10px 12px; border:1px solid var(--gray-light); border-radius:8px; font-size:0.85rem; }
-.session-item.done { background:var(--green-light); border-color:#a5d6a7; }
-.session-item.upcoming { background:#fff8e1; border-color:#ffe082; }
-.session-num-badge { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.75rem; padding:2px 8px; border-radius:4px; flex-shrink:0; }
-.badge-done { background:var(--green); color:#fff; }
-.badge-next { background:var(--gold); color:#fff; }
-.badge-upcoming { background:var(--gray-light); color:var(--text-muted); }
-.session-item strong { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.85rem; display:block; }
-.session-item span { font-size:0.75rem; color:var(--text-muted); }
+.msg-layout{display:grid;grid-template-columns:280px 1fr;background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);overflow:hidden;height:calc(100vh - 200px);min-height:500px;box-shadow:var(--shadow);}
+.msg-sidebar{border-right:1px solid var(--gray-light);display:flex;flex-direction:column;}
+.msg-sidebar-header{padding:16px;border-bottom:1px solid var(--gray-light);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;display:flex;align-items:center;justify-content:space-between;}
+.msg-sidebar-header button{background:var(--red);color:#fff;border:none;width:28px;height:28px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
+.msg-search{padding:10px 12px;border-bottom:1px solid var(--gray-light);}
+.msg-search input{width:100%;padding:7px 12px;border:1px solid var(--gray-light);border-radius:20px;font-size:0.82rem;outline:none;font-family:'Source Sans 3',sans-serif;}
+.msg-list{flex:1;overflow-y:auto;}
+.msg-thread{padding:12px 14px;cursor:pointer;border-bottom:1px solid rgba(0,0,0,0.05);display:flex;gap:10px;transition:background 0.1s;}
+.msg-thread:hover{background:var(--off-white);}
+.msg-thread.active{background:var(--red-light);border-left:3px solid var(--red);}
+.msg-avatar{width:38px;height:38px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.2rem;}
+.msg-thread-info{flex:1;min-width:0;}
+.msg-thread-name{font-family:'Montserrat',sans-serif;font-weight:600;font-size:0.88rem;display:flex;justify-content:space-between;}
+.msg-thread-time{font-size:0.72rem;color:var(--gray);font-weight:400;}
+.msg-thread-preview{font-size:0.8rem;color:var(--text-muted);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.msg-unread{min-width:18px;height:18px;border-radius:9px;background:var(--red);color:#fff;font-size:0.7rem;font-weight:700;display:flex;align-items:center;justify-content:center;padding:0 4px;}
+.msg-main{display:flex;flex-direction:column;}
+.msg-main-header{padding:14px 20px;border-bottom:1px solid var(--gray-light);display:flex;align-items:center;gap:12px;}
+.msg-main-header .msg-avatar{width:40px;height:40px;}
+.msg-main-info{flex:1;}
+.msg-main-info strong{font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;display:block;}
+.msg-main-info span{font-size:0.78rem;color:var(--gray);}
+.msg-actions{display:flex;gap:8px;}
+.msg-action-btn{background:var(--off-white);border:1px solid var(--gray-light);padding:6px 12px;border-radius:6px;font-size:0.78rem;cursor:pointer;display:flex;align-items:center;gap:4px;transition:background 0.15s;}
+.msg-action-btn:hover{background:var(--gray-light);}
+.msg-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
+.msg-bubble-wrap{display:flex;gap:10px;}
+.msg-bubble-wrap.mine{flex-direction:row-reverse;}
+.bubble-avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
+.bubble{max-width:68%;padding:10px 14px;border-radius:14px;font-size:0.88rem;line-height:1.5;}
+.bubble-other{background:var(--off-white);border-radius:2px 14px 14px 14px;}
+.bubble-mine{background:var(--red);color:#fff;border-radius:14px 2px 14px 14px;}
+.bubble-time{font-size:0.7rem;color:var(--gray);margin-top:4px;}
+.msg-input-area{padding:14px 16px;border-top:1px solid var(--gray-light);display:flex;gap:10px;align-items:flex-end;}
+.msg-input-area textarea{flex:1;padding:10px 14px;border:1px solid var(--gray-light);border-radius:20px;font-family:'Source Sans 3',sans-serif;font-size:0.9rem;resize:none;outline:none;max-height:100px;transition:border-color 0.2s;}
+.msg-input-area textarea:focus{border-color:var(--red);}
+.send-btn{background:var(--red);color:#fff;border:none;width:40px;height:40px;border-radius:50%;font-size:1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background 0.15s,transform 0.15s;}
+.send-btn:hover{background:var(--red-dark);transform:scale(1.05);}
 
 /* ── CALENDAR ── */
-.cal-layout { display:grid; grid-template-columns:1fr 320px; gap:24px; }
-.cal-main { background:#fff; border:1px solid var(--gray-light); border-radius:var(--radius); padding:24px; box-shadow:var(--shadow); }
-.cal-header { display:flex; align-items:center; justify-content:space-between; margin-bottom:20px; }
-.cal-header h2 { font-family:'Montserrat',sans-serif; font-weight:800; font-size:1.2rem; }
-.cal-nav { display:flex; gap:6px; }
-.cal-nav button { background:var(--off-white); border:1px solid var(--gray-light); width:32px; height:32px; border-radius:6px; cursor:pointer; font-size:0.9rem; display:flex; align-items:center; justify-content:center; transition:background 0.15s; }
-.cal-nav button:hover { background:var(--gray-light); }
-.cal-grid { display:grid; grid-template-columns:repeat(7,1fr); gap:2px; }
-.cal-day-header { text-align:center; font-size:0.75rem; font-weight:700; color:var(--text-muted); padding:6px 0; font-family:'Montserrat',sans-serif; }
-.cal-day { min-height:80px; padding:6px; border:1px solid var(--gray-light); border-radius:4px; cursor:pointer; background:#fff; transition:background 0.15s; }
-.cal-day:hover { background:var(--off-white); }
-.cal-day.other-month { background:#fafafa; }
-.cal-day.other-month .cal-day-num { color:#ccc; }
-.cal-day.today { border-color:var(--red); background:#fff8f8; }
-.cal-day-num { font-family:'Montserrat',sans-serif; font-size:0.8rem; font-weight:700; margin-bottom:4px; }
-.cal-event { border-radius:3px; padding:1px 5px; font-size:0.68rem; font-weight:600; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-bottom:2px; color:#fff; }
-.ev-red{background:var(--red);} .ev-blue{background:var(--blue-info);} .ev-green{background:var(--green);} .ev-gold{background:var(--gold);}
-.cal-sidebar { display:flex; flex-direction:column; gap:16px; }
-.cal-side-card { background:#fff; border:1px solid var(--gray-light); border-radius:var(--radius); padding:20px; box-shadow:var(--shadow); }
-.cal-side-card h3 { font-family:'Montserrat',sans-serif; font-weight:700; font-size:0.9rem; margin-bottom:14px; padding-bottom:10px; border-bottom:1px solid var(--gray-light); display:flex; align-items:center; gap:6px; }
-.event-list { display:flex; flex-direction:column; gap:10px; }
-.event-item { display:flex; gap:10px; align-items:flex-start; }
-.event-dot { width:10px; height:10px; border-radius:50%; margin-top:4px; flex-shrink:0; }
-.event-info strong { font-family:'Montserrat',sans-serif; font-size:0.82rem; font-weight:700; display:block; }
-.event-info span { font-size:0.75rem; color:var(--text-muted); }
-.notify-options { display:flex; flex-direction:column; gap:8px; }
-.notify-toggle { display:flex; align-items:center; justify-content:space-between; padding:10px 12px; border:1px solid var(--gray-light); border-radius:8px; font-size:0.85rem; }
-.toggle { width:36px; height:20px; border-radius:10px; position:relative; cursor:pointer; background:#ccc; transition:background 0.2s; }
-.toggle.on { background:var(--red); }
-.toggle::after { content:''; position:absolute; width:14px; height:14px; border-radius:50%; background:#fff; top:3px; left:3px; transition:transform 0.2s; box-shadow:0 1px 3px rgba(0,0,0,0.2); }
-.toggle.on::after { transform:translateX(16px); }
-.notify-label { font-weight:500; display:flex; align-items:center; gap:6px; }
+.cal-layout{display:grid;grid-template-columns:1fr 320px;gap:24px;}
+.cal-main{background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);padding:24px;box-shadow:var(--shadow);}
+.cal-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:20px;}
+.cal-header h2{font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.2rem;}
+.cal-nav{display:flex;gap:6px;}
+.cal-nav button{background:var(--off-white);border:1px solid var(--gray-light);width:32px;height:32px;border-radius:6px;cursor:pointer;font-size:0.9rem;display:flex;align-items:center;justify-content:center;transition:background 0.15s;}
+.cal-nav button:hover{background:var(--gray-light);}
+.cal-grid{display:grid;grid-template-columns:repeat(7,1fr);gap:2px;}
+.cal-day-header{text-align:center;font-size:0.75rem;font-weight:700;color:var(--text-muted);padding:6px 0;font-family:'Montserrat',sans-serif;}
+.cal-day{min-height:80px;padding:6px;border:1px solid var(--gray-light);border-radius:4px;cursor:pointer;background:#fff;transition:background 0.15s;}
+.cal-day:hover{background:var(--off-white);}
+.cal-day.other-month{background:#fafafa;}
+.cal-day.other-month .cal-day-num{color:#ccc;}
+.cal-day.today{border-color:var(--red);background:#fff8f8;}
+.cal-day-num{font-family:'Montserrat',sans-serif;font-size:0.8rem;font-weight:700;margin-bottom:4px;}
+.cal-event{border-radius:3px;padding:1px 5px;font-size:0.68rem;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;margin-bottom:2px;color:#fff;}
+.ev-red{background:var(--red);} .ev-blue{background:var(--blue);} .ev-gold{background:var(--gold);}
+.cal-sidebar{display:flex;flex-direction:column;gap:16px;}
+.cal-side-card{background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow);}
+.cal-side-card h3{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:14px;padding-bottom:10px;border-bottom:1px solid var(--gray-light);}
+.event-list{display:flex;flex-direction:column;gap:10px;}
+.event-item{display:flex;gap:10px;align-items:flex-start;}
+.event-dot{width:10px;height:10px;border-radius:50%;margin-top:4px;flex-shrink:0;}
+.event-info strong{font-family:'Montserrat',sans-serif;font-size:0.82rem;font-weight:700;display:block;}
+.event-info span{font-size:0.75rem;color:var(--text-muted);}
+.notify-options{display:flex;flex-direction:column;gap:8px;}
+.notify-toggle{display:flex;align-items:center;justify-content:space-between;padding:10px 12px;border:1px solid var(--gray-light);border-radius:8px;font-size:0.85rem;}
+.toggle{width:36px;height:20px;border-radius:10px;position:relative;cursor:pointer;background:#ccc;transition:background 0.2s;}
+.toggle.on{background:var(--red);}
+.toggle::after{content:'';position:absolute;width:14px;height:14px;border-radius:50%;background:#fff;top:3px;left:3px;transition:transform 0.2s;box-shadow:0 1px 3px rgba(0,0,0,0.2);}
+.toggle.on::after{transform:translateX(16px);}
+.notify-label{font-weight:500;display:flex;align-items:center;gap:6px;}
 
-@keyframes fadeIn { from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)} }
-
-@media(max-width:900px){ .mgmt-grid,.cal-layout{grid-template-columns:1fr;} .msg-sidebar{display:none;} .msg-layout{grid-template-columns:1fr;} }
-@media(max-width:640px){ .topnav{padding:0 16px;} .main-content{padding:20px 16px;} .banner-slider{padding:28px 20px;} .banner-nav{display:none;} }
+@media(max-width:960px){.my-clubs-layout{grid-template-columns:1fr;} .cal-layout{grid-template-columns:1fr;}}
+@media(max-width:900px){.msg-sidebar{display:none;} .msg-layout{grid-template-columns:1fr;}}
+@media(max-width:640px){.topnav{padding:0 16px;} .main-content{padding:20px 16px;} .banner-slider{padding:28px 20px;} .banner-nav{display:none;}}
 </style>
 </head>
 <body>
@@ -309,44 +296,29 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
     <div class="hub-name">🐺 WolfPack Hub</div>
   </div>
   <div class="nav-links">
-    <button class="nav-link active" onclick="showPage('explore')">Explore Clubs</button>
+    <button class="nav-link active" onclick="showPage('explore')">Explore</button>
     <button class="nav-link" onclick="showPage('messaging')">Messaging</button>
     <button class="nav-link" onclick="showPage('manage')">My Clubs</button>
     <button class="nav-link" onclick="showPage('schedule')">Schedule</button>
   </div>
   <div style="position:relative;">
-    <div class="nav-avatar" onclick="toggleProfile()" id="navAvatar">
-      DJ<div class="notif-dot"></div>
-    </div>
-    <!-- Profile Dropdown -->
+    <div class="nav-avatar" onclick="toggleProfile()" id="navAvatar">DJ<div class="notif-dot"></div></div>
     <div class="profile-dropdown" id="profileDropdown">
       <div class="pd-header">
         <div class="pd-avatar">DJ</div>
-        <div class="pd-info">
-          <h3>DJ Burns</h3>
-          <span>Accounting · Junior · Poole College</span>
-        </div>
+        <div class="pd-info"><h3>DJ Burns</h3><span>Accounting · Junior · Poole College</span></div>
       </div>
       <div class="pd-body">
         <div class="pd-stats">
-          <div class="pd-stat"><strong>3</strong><span>Clubs</span></div>
-          <div class="pd-stat"><strong>8</strong><span>Events</span></div>
+          <div class="pd-stat"><strong>2</strong><span>Clubs</span></div>
+          <div class="pd-stat"><strong>1</strong><span>Event</span></div>
           <div class="pd-stat"><strong>3.9</strong><span>GPA</span></div>
         </div>
         <div class="pd-section-title">My Organizations</div>
         <div class="pd-badges">
-          <div class="pd-badge">
-            <span class="emoji">📊</span>
-            <div><strong>Beta Alpha Psi</strong><span>Accounting Honors Society · Officer</span></div>
-          </div>
-          <div class="pd-badge">
-            <span class="emoji">💼</span>
-            <div><strong>Deloitte Digital Launchpad</strong><span>Participant · Session 3 of 4 upcoming</span></div>
-          </div>
-          <div class="pd-badge">
-            <span class="emoji">🏀</span>
-            <div><strong>Club Basketball</strong><span>Player · Carmichael Gym</span></div>
-          </div>
+          <div class="pd-badge"><span class="emoji">📊</span><div><strong>Beta Alpha Psi</strong><span>Accounting Honors Society · Officer</span></div></div>
+          <div class="pd-badge"><span class="emoji">🏀</span><div><strong>Club Basketball</strong><span>Player · Carmichael Gym</span></div></div>
+          <div class="pd-badge"><span class="emoji">💼</span><div><strong>Deloitte Digital Launchpad</strong><span>Event · Session 3 of 4 upcoming</span></div></div>
         </div>
         <div class="pd-links">
           <button class="pd-link" onclick="closeProfile();showPage('manage')">⚙️ Manage My Clubs</button>
@@ -366,9 +338,9 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
       <div class="banner-content" id="bannerContent">
         <div class="banner-tag">🏀 Welcome Back, DJ!</div>
         <div class="banner-title">Your WolfPack Community<br>Awaits This Semester</div>
-        <div class="banner-sub">Explore clubs, manage your organizations, and stay connected across campus.</div>
+        <div class="banner-sub">Explore clubs, discover events, and stay connected across campus.</div>
         <div class="banner-actions">
-          <button class="btn-banner-primary" onclick="scrollToClubs()">Explore All Clubs</button>
+          <button class="btn-banner-primary" onclick="scrollToSection('browse-section')">Explore Clubs & Events</button>
           <button class="btn-banner-outline" onclick="showPage('manage')">My Clubs</button>
         </div>
       </div>
@@ -384,7 +356,6 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
     </div>
   </div>
 
-  <!-- Recommended Banner -->
   <div class="rec-banner">
     <div class="rec-banner-icon">ℹ️</div>
     <div class="rec-banner-text">
@@ -401,28 +372,27 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
   </div>
 
   <div class="main-content">
-    <!-- Quick Actions -->
     <div class="section-header"><div class="section-title">Quick Actions</div></div>
     <div class="quick-grid">
-      <div class="quick-card" onclick="scrollToClubs()">
+      <div class="quick-card" onclick="scrollToSection('browse-section')">
         <div class="quick-icon icon-red">🔍</div>
         <h3>Explore Clubs</h3>
         <p>Browse all 600+ student organizations on campus.</p>
       </div>
+      <div class="quick-card" onclick="scrollToSection('browse-section');switchExploreTab('events')">
+        <div class="quick-icon icon-blue">🎟️</div>
+        <h3>Browse Events</h3>
+        <p>Find campus events, programs, and workshops to join.</p>
+      </div>
       <div class="quick-card" onclick="showPage('schedule')">
-        <div class="quick-icon icon-blue">📅</div>
+        <div class="quick-icon icon-gold">📅</div>
         <h3>My Schedule</h3>
         <p>View upcoming meetings, events, and deadlines.</p>
       </div>
       <div class="quick-card" onclick="showPage('messaging')">
-        <div class="quick-icon icon-gold">💬</div>
+        <div class="quick-icon icon-green">💬</div>
         <h3>Messages</h3>
         <p>Communicate with club officers and members.</p>
-      </div>
-      <div class="quick-card" onclick="showPage('manage')">
-        <div class="quick-icon icon-green">⚙️</div>
-        <h3>Manage My Clubs</h3>
-        <p>Update your clubs, rosters, and announcements.</p>
       </div>
       <div class="quick-card" onclick="showPage('manage')">
         <div class="quick-icon icon-purple">➕</div>
@@ -431,24 +401,44 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
       </div>
     </div>
 
-    <!-- Club Browser -->
-    <div id="club-section">
-      <div class="section-header">
-        <div class="section-title">Browse All Clubs</div>
-        <a class="section-link">View All →</a>
+    <!-- Browse Section with Tabs -->
+    <div id="browse-section">
+      <div class="tab-bar">
+        <button class="tab active" id="tab-clubs" onclick="switchExploreTab('clubs')">🏛️ Browse All Clubs</button>
+        <button class="tab" id="tab-events" onclick="switchExploreTab('events')">🎟️ Browse All Events</button>
       </div>
-      <div class="search-bar">
-        <div class="search-input-wrap">
-          <span class="search-icon">🔍</span>
-          <input type="text" placeholder="Search clubs, categories, keywords..." oninput="filterClubs(this.value)" />
+
+      <!-- CLUBS TAB -->
+      <div id="explore-clubs">
+        <div class="search-bar">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search clubs..." oninput="filterClubs(this.value)" />
+          </div>
+          <button class="filter-btn active" onclick="setClubFilter('all',this)">All</button>
+          <button class="filter-btn" onclick="setClubFilter('accounting',this)">Accounting</button>
+          <button class="filter-btn" onclick="setClubFilter('sports',this)">Sports</button>
+          <button class="filter-btn" onclick="setClubFilter('consulting',this)">Consulting</button>
+          <button class="filter-btn" onclick="setClubFilter('tech',this)">Technology</button>
         </div>
-        <button class="filter-btn active" onclick="setFilter('all',this)">All</button>
-        <button class="filter-btn" onclick="setFilter('accounting',this)">Accounting</button>
-        <button class="filter-btn" onclick="setFilter('sports',this)">Sports</button>
-        <button class="filter-btn" onclick="setFilter('consulting',this)">Consulting</button>
-        <button class="filter-btn" onclick="setFilter('tech',this)">Technology</button>
+        <div class="cards-grid" id="clubsGrid"></div>
       </div>
-      <div class="clubs-grid" id="clubsGrid"></div>
+
+      <!-- EVENTS TAB -->
+      <div id="explore-events" style="display:none;">
+        <div class="search-bar">
+          <div class="search-input-wrap">
+            <span class="search-icon">🔍</span>
+            <input type="text" placeholder="Search events..." oninput="filterEvents(this.value)" />
+          </div>
+          <button class="filter-btn active" onclick="setEventFilter('all',this)">All</button>
+          <button class="filter-btn" onclick="setEventFilter('recruiting',this)">Recruiting</button>
+          <button class="filter-btn" onclick="setEventFilter('workshop',this)">Workshops</button>
+          <button class="filter-btn" onclick="setEventFilter('social',this)">Social</button>
+          <button class="filter-btn" onclick="setEventFilter('sports',this)">Sports</button>
+        </div>
+        <div class="cards-grid" id="eventsGrid"></div>
+      </div>
     </div>
   </div>
 </div>
@@ -469,7 +459,7 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
             <div class="msg-avatar" style="background:#fff8e1;">📊</div>
             <div class="msg-thread-info">
               <div class="msg-thread-name">Beta Alpha Psi <span class="msg-thread-time">5m ago</span></div>
-              <div class="msg-thread-preview">Chapter meeting Tuesday 6pm — Hillsborough 12</div>
+              <div class="msg-thread-preview">Chapter meeting Tuesday 6pm</div>
             </div>
             <div class="msg-unread">2</div>
           </div>
@@ -492,14 +482,7 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
             <div class="msg-avatar" style="background:#e8f0fb;">📈</div>
             <div class="msg-thread-info">
               <div class="msg-thread-name">Finance & Consulting <span class="msg-thread-time">Yesterday</span></div>
-              <div class="msg-thread-preview">Mock interview sign-ups are open now</div>
-            </div>
-          </div>
-          <div class="msg-thread" onclick="setThread(this,'Student Gov — Finance','🏛️','#fff8e1','Budget approvals open')">
-            <div class="msg-avatar" style="background:#fff8e1;">🏛️</div>
-            <div class="msg-thread-info">
-              <div class="msg-thread-name">Student Gov — Finance <span class="msg-thread-time">Mon</span></div>
-              <div class="msg-thread-preview">Budget approval deadline is Friday</div>
+              <div class="msg-thread-preview">Mock interview sign-ups are open</div>
             </div>
           </div>
         </div>
@@ -512,8 +495,8 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
             <span id="chatSub">34 members · Last active 5 min ago</span>
           </div>
           <div class="msg-actions">
-            <button class="msg-action-btn" onclick="alert('📱 Text notification sent to all members!')">📱 Text All</button>
-            <button class="msg-action-btn" onclick="alert('📧 Email blast sent to all members!')">📧 Email All</button>
+            <button class="msg-action-btn" onclick="alert('📱 Text sent to all members!')">📱 Text All</button>
+            <button class="msg-action-btn" onclick="alert('📧 Email sent to all members!')">📧 Email All</button>
             <button class="msg-action-btn" onclick="showPage('schedule')">📅 Schedule</button>
           </div>
         </div>
@@ -521,28 +504,28 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
           <div class="msg-bubble-wrap">
             <div class="bubble-avatar" style="background:#fff8e1;">📊</div>
             <div>
-              <div class="bubble bubble-other">Hey everyone! Reminder: Chapter meeting this <strong>Tuesday at 6pm in Hillsborough 12</strong>. We'll be going over the upcoming Big 4 recruiting panel — come prepared with questions!</div>
+              <div class="bubble bubble-other">Hey everyone! Reminder: Chapter meeting this <strong>Tuesday at 6pm in Hillsborough 12</strong>. Big 4 recruiting panel prep — come with questions!</div>
               <div class="bubble-time">President Aisha · 10:04 AM</div>
             </div>
           </div>
           <div class="msg-bubble-wrap">
             <div class="bubble-avatar" style="background:#e8f0fb;">🧑</div>
             <div>
-              <div class="bubble bubble-other">Also the CPA exam info session is next week. Highly recommend for all accounting juniors!</div>
+              <div class="bubble bubble-other">CPA exam info session is next week too. Highly recommend for all accounting juniors!</div>
               <div class="bubble-time">VP Marcus · 10:18 AM</div>
             </div>
           </div>
           <div class="msg-bubble-wrap mine">
             <div class="bubble-avatar" style="background:var(--red);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;">DJ</div>
             <div>
-              <div class="bubble bubble-mine">Thanks — will be there Tuesday! Also wanted to mention I'm in the Deloitte Digital Launchpad this semester, so really looking forward to the recruiting panel 💼</div>
+              <div class="bubble bubble-mine">Thanks — will be there Tuesday! Also in the Deloitte Digital Launchpad this semester so really looking forward to the panel 💼</div>
               <div class="bubble-time">You · 10:22 AM</div>
             </div>
           </div>
           <div class="msg-bubble-wrap">
             <div class="bubble-avatar" style="background:#fff8e1;">📊</div>
             <div>
-              <div class="bubble bubble-other">That's a great talking point at the panel, DJ! Make sure to bring that up 🔥</div>
+              <div class="bubble bubble-other">Great talking point at the panel DJ — definitely bring that up! 🔥</div>
               <div class="bubble-time">President Aisha · 10:25 AM</div>
             </div>
           </div>
@@ -562,122 +545,145 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
     <div class="banner-slider" style="padding:28px 48px;">
       <div class="banner-content">
         <div class="banner-title" style="font-size:1.8rem;">My Clubs & Organizations</div>
-        <div class="banner-sub">Manage your memberships, create new clubs, and track engagement.</div>
+        <div class="banner-sub">Select a club or event to view details, manage settings, and more.</div>
       </div>
     </div>
   </div>
   <div class="main-content">
-    <div class="stats-row" style="max-width:500px;margin-bottom:28px;">
-      <div class="stat-box"><span class="num">3</span><span class="lbl">Active Clubs</span></div>
-      <div class="stat-box"><span class="num">2</span><span class="lbl">Officer Roles</span></div>
-      <div class="stat-box"><span class="num">8</span><span class="lbl">Events This Semester</span></div>
+    <div class="stats-row" style="max-width:500px;">
+      <div class="stat-box"><span class="num">2</span><span class="lbl">Clubs</span></div>
+      <div class="stat-box"><span class="num">1</span><span class="lbl">Events</span></div>
+      <div class="stat-box"><span class="num">8</span><span class="lbl">This Semester</span></div>
     </div>
-    <div class="mgmt-grid">
 
-      <!-- My Current Clubs -->
-      <div class="mgmt-card">
-        <h3><span class="icon">🐺</span> My Current Clubs</h3>
-        <div class="my-clubs-list">
-          <div class="my-club-item">
-            <div class="my-club-emoji">📊</div>
-            <div class="my-club-info">
-              <strong>Beta Alpha Psi</strong>
-              <span>Accounting Honors Society · Officer · 34 members</span>
-            </div>
-            <div class="my-club-actions">
-              <button class="btn-sm btn-sm-red">Manage</button>
-              <button class="btn-sm btn-sm-gray">View</button>
-            </div>
+    <div class="my-clubs-layout">
+      <!-- Left: Picker -->
+      <div>
+        <div class="club-picker">
+          <div class="club-picker-header">My Clubs</div>
+          <div class="club-picker-item active" id="pick-bap" onclick="selectClub('bap')">
+            <div class="picker-emoji">📊</div>
+            <div class="picker-info"><strong>Beta Alpha Psi</strong><span>Officer · 34 members</span></div>
+            <div class="picker-arrow">›</div>
           </div>
-          <div class="my-club-item">
-            <div class="my-club-emoji">💼</div>
-            <div class="my-club-info">
-              <strong>Deloitte Digital Launchpad</strong>
-              <span>Participant · Session 3 of 4 upcoming</span>
-            </div>
-            <div class="my-club-actions">
-              <button class="btn-sm btn-sm-gray">Details</button>
-            </div>
-          </div>
-          <div class="my-club-item">
-            <div class="my-club-emoji">🏀</div>
-            <div class="my-club-info">
-              <strong>Club Basketball</strong>
-              <span>Player · Practice Wed & Fri · Carmichael Gym</span>
-            </div>
-            <div class="my-club-actions">
-              <button class="btn-sm btn-sm-red">Manage</button>
-              <button class="btn-sm btn-sm-gray">View</button>
-            </div>
+          <div class="club-picker-item" id="pick-bball" onclick="selectClub('bball')">
+            <div class="picker-emoji">🏀</div>
+            <div class="picker-info"><strong>Club Basketball</strong><span>Player · 22 members</span></div>
+            <div class="picker-arrow">›</div>
           </div>
         </div>
-        <div style="margin-top:16px;padding-top:16px;border-top:1px solid var(--gray-light);">
+
+        <div class="club-picker" style="margin-top:16px;">
+          <div class="club-picker-header" style="background:var(--blue);">My Events</div>
+          <div class="club-picker-item" id="pick-launchpad" onclick="selectClub('launchpad')">
+            <div class="picker-emoji">💼</div>
+            <div class="picker-info"><strong>Deloitte Digital Launchpad</strong><span>Participant · Session 3 of 4</span></div>
+            <div class="picker-arrow">›</div>
+          </div>
+        </div>
+
+        <div style="margin-top:16px;display:flex;flex-direction:column;gap:8px;">
           <button class="btn-primary" onclick="showPage('explore')">+ Explore More Clubs</button>
+          <button class="btn-secondary" onclick="showPage('explore');switchExploreTab('events')">+ Browse Events</button>
         </div>
       </div>
 
-      <!-- Deloitte Sessions (same weight as any other club detail) -->
-      <div class="mgmt-card">
-        <h3><span class="icon">💼</span> Deloitte Digital Launchpad — Sessions</h3>
-        <div class="session-list">
-          <div class="session-item done">
-            <span class="session-num-badge badge-done">✓ Done</span>
-            <div><strong>Session 1 — Intro to Consulting</strong><span>Completed · 3/23 · Nelson 1130</span></div>
-          </div>
-          <div class="session-item done">
-            <span class="session-num-badge badge-done">✓ Done</span>
-            <div><strong>Session 2 — Data Analysis</strong><span>Completed · 3/30</span></div>
-          </div>
-          <div class="session-item upcoming">
-            <span class="session-num-badge badge-next">Next</span>
-            <div><strong>Session 3 — Business Process Automation</strong><span>Nelson 1130 · 6pm · Business casual · Dinner provided</span></div>
-          </div>
-          <div class="session-item">
-            <span class="session-num-badge badge-upcoming">Soon</span>
-            <div><strong>Session 4 — Cloud Platforms</strong><span>Date TBD</span></div>
+      <!-- Right: Detail Panel -->
+      <div id="club-detail-panel">
+        <!-- Beta Alpha Psi -->
+        <div id="detail-bap" class="club-detail">
+          <div class="club-detail-banner" style="background:#fff8e1;">📊</div>
+          <div class="club-detail-body">
+            <div class="club-detail-title">Beta Alpha Psi</div>
+            <div class="club-detail-sub">Accounting Honors Society · Poole College of Management</div>
+            <div class="detail-tags">
+              <span class="tag tag-gold">Accounting</span>
+              <span class="tag tag-red">Honors</span>
+              <span class="tag tag-blue">Professional</span>
+            </div>
+            <div class="detail-info-grid">
+              <div class="detail-info-item"><div class="lbl">Your Role</div><div class="val">Officer</div></div>
+              <div class="detail-info-item"><div class="lbl">Members</div><div class="val">34</div></div>
+              <div class="detail-info-item"><div class="lbl">Meetings</div><div class="val">Tuesdays 6pm</div></div>
+              <div class="detail-info-item"><div class="lbl">Location</div><div class="val">Hillsborough 12</div></div>
+            </div>
+            <div class="detail-desc">Beta Alpha Psi is the national honors organization for accounting, finance, and information systems students. Members participate in professional development, Big 4 networking events, CPA exam prep workshops, and service projects.</div>
+            <div class="form-group"><label>Post Announcement</label><textarea placeholder="Send an update to all BAP members..."></textarea></div>
+            <div class="detail-actions">
+              <button class="btn-primary" onclick="alert('✅ Announcement posted!')">Post Update</button>
+              <button class="btn-secondary" onclick="showPage('messaging')">Open Chat</button>
+              <button class="btn-secondary" onclick="showPage('schedule')">View Schedule</button>
+            </div>
           </div>
         </div>
-        <div style="margin-top:16px;display:flex;gap:10px;">
-          <button class="btn-primary" onclick="alert('📧 Dietary survey link opened!')">Complete Dietary Survey</button>
-          <button class="btn-secondary" onclick="alert('Resume submission info sent by Tyler Ellis!')">Submit Resume</button>
+
+        <!-- Club Basketball (hidden by default) -->
+        <div id="detail-bball" class="club-detail" style="display:none;">
+          <div class="club-detail-banner" style="background:#fce8e8;">🏀</div>
+          <div class="club-detail-body">
+            <div class="club-detail-title">Club Basketball</div>
+            <div class="club-detail-sub">Intramural & Club Sports · Campus Recreation</div>
+            <div class="detail-tags">
+              <span class="tag tag-red">Sports</span>
+              <span class="tag tag-green">Recreation</span>
+            </div>
+            <div class="detail-info-grid">
+              <div class="detail-info-item"><div class="lbl">Your Role</div><div class="val">Player</div></div>
+              <div class="detail-info-item"><div class="lbl">Roster</div><div class="val">22 players</div></div>
+              <div class="detail-info-item"><div class="lbl">Practice</div><div class="val">Wed & Fri 5pm</div></div>
+              <div class="detail-info-item"><div class="lbl">Location</div><div class="val">Carmichael Gym</div></div>
+            </div>
+            <div class="detail-desc">NC State Club Basketball competes in the ACC intramural league and hosts open runs throughout the semester. Practice is held Wednesday and Friday evenings at Carmichael Gym. All skill levels are welcome.</div>
+            <div class="form-group"><label>Message the Team</label><textarea placeholder="Send a message to all players..."></textarea></div>
+            <div class="detail-actions">
+              <button class="btn-primary" onclick="alert('📱 Message sent to team!')">Send Message</button>
+              <button class="btn-secondary" onclick="showPage('messaging')">Open Chat</button>
+              <button class="btn-secondary" onclick="showPage('schedule')">View Schedule</button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Deloitte Launchpad (hidden by default) -->
+        <div id="detail-launchpad" class="club-detail" style="display:none;">
+          <div class="club-detail-banner" style="background:#e8f0fb;">💼</div>
+          <div class="club-detail-body">
+            <div class="club-detail-title">Deloitte Digital Launchpad</div>
+            <div class="club-detail-sub">University Program · Poole College of Management · 4-Session Series</div>
+            <div class="detail-tags">
+              <span class="tag tag-blue">Consulting</span>
+              <span class="tag tag-gold">Recruiting</span>
+              <span class="tag tag-purple">Technology</span>
+            </div>
+            <div class="detail-info-grid">
+              <div class="detail-info-item"><div class="lbl">Your Role</div><div class="val">Participant</div></div>
+              <div class="detail-info-item"><div class="lbl">Cohort Size</div><div class="val">38 students</div></div>
+              <div class="detail-info-item"><div class="lbl">Next Session</div><div class="val">Session 3 of 4</div></div>
+              <div class="detail-info-item"><div class="lbl">Location</div><div class="val">Nelson 1130</div></div>
+            </div>
+            <div class="detail-desc">A Deloitte-led university program providing real-world exposure to consulting and cloud platforms. Four guided sessions covering consulting fundamentals, data analysis, business process automation, and cloud technology. Includes a hands-on case study and direct recruiting pipeline to Deloitte.</div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:10px;">Sessions</div>
+            <div class="session-list">
+              <div class="session-item done"><span class="s-badge s-done">✓ Done</span><div><strong>Session 1 — Intro to Consulting</strong><span>Completed · 3/23 · Nelson 1130</span></div></div>
+              <div class="session-item done"><span class="s-badge s-done">✓ Done</span><div><strong>Session 2 — Data Analysis</strong><span>Completed · 3/30</span></div></div>
+              <div class="session-item upcoming-s"><span class="s-badge s-next">Next</span><div><strong>Session 3 — Business Process Automation</strong><span>Nelson 1130 · 6pm · Business casual · Dinner provided</span></div></div>
+              <div class="session-item"><span class="s-badge s-soon">Soon</span><div><strong>Session 4 — Cloud Platforms</strong><span>Date TBD</span></div></div>
+            </div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.85rem;margin-bottom:10px;">To-Dos</div>
+            <div class="checklist">
+              <div class="check-item"><div class="chk chk-done">✓</div><span>Attend Session 1 (3/23)</span></div>
+              <div class="check-item"><div class="chk chk-done">✓</div><span>Attend Session 2 (3/30)</span></div>
+              <div class="check-item"><div class="chk chk-warn">!</div><span style="color:var(--gold);font-weight:600;">Fill out dietary restrictions survey — ASAP</span></div>
+              <div class="check-item"><div class="chk chk-todo">○</div><span>Submit resume to share with Deloitte (optional)</span></div>
+              <div class="check-item"><div class="chk chk-todo">○</div><span>Attend Session 3 — business casual dress</span></div>
+            </div>
+            <div class="detail-actions">
+              <button class="btn-primary" onclick="alert('📧 Dietary survey opened!')">Complete Dietary Survey</button>
+              <button class="btn-secondary" onclick="alert('Resume submission info from Tyler Ellis!')">Submit Resume</button>
+              <button class="btn-secondary" onclick="showPage('schedule')">View Schedule</button>
+            </div>
+          </div>
         </div>
       </div>
-
-      <!-- Beta Alpha Psi Management -->
-      <div class="mgmt-card">
-        <h3><span class="icon">📊</span> Manage: Beta Alpha Psi</h3>
-        <div class="form-group"><label>Meeting Details</label><input type="text" value="Tuesdays 6:00 PM — Hillsborough 12" /></div>
-        <div class="form-group"><label>Announcement</label><textarea placeholder="Post an update to all members..."></textarea></div>
-        <div style="display:flex;gap:10px;">
-          <button class="btn-primary" onclick="alert('✅ Announcement posted to Beta Alpha Psi!')">Post Update</button>
-          <button class="btn-secondary" onclick="showPage('messaging')">Open Chat</button>
-        </div>
-      </div>
-
-      <!-- Create New Club -->
-      <div class="mgmt-card">
-        <h3><span class="icon">➕</span> Create a New Club</h3>
-        <div class="form-group"><label>Club Name *</label><input type="text" placeholder="e.g. NC State Accounting Case Club" /></div>
-        <div class="form-group">
-          <label>Category *</label>
-          <select>
-            <option value="">-- Select Category --</option>
-            <option>Academic & Professional</option>
-            <option>Technology</option>
-            <option>Sports & Recreation</option>
-            <option>Arts & Culture</option>
-            <option>Service & Volunteering</option>
-            <option>Greek Life</option>
-          </select>
-        </div>
-        <div class="form-group"><label>Description *</label><textarea placeholder="What is your club about?"></textarea></div>
-        <div class="form-group"><label>Faculty Advisor Email</label><input type="email" placeholder="advisor@ncsu.edu" /></div>
-        <div style="display:flex;gap:10px;">
-          <button class="btn-primary" onclick="alert('✅ Proposal submitted to Student Government!')">Submit Proposal</button>
-          <button class="btn-secondary">Save Draft</button>
-        </div>
-      </div>
-
     </div>
   </div>
 </div>
@@ -708,30 +714,12 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
         <div class="cal-side-card">
           <h3>📋 Upcoming Events</h3>
           <div class="event-list">
-            <div class="event-item">
-              <div class="event-dot" style="background:var(--red);"></div>
-              <div class="event-info"><strong>Club Basketball Practice</strong><span>Today · 5:00 PM · Carmichael Gym</span></div>
-            </div>
-            <div class="event-item">
-              <div class="event-dot" style="background:var(--gold);"></div>
-              <div class="event-info"><strong>Beta Alpha Psi — Chapter Meeting</strong><span>Apr 15 · 6:00 PM · Hillsborough 12</span></div>
-            </div>
-            <div class="event-item">
-              <div class="event-dot" style="background:var(--blue-info);"></div>
-              <div class="event-info"><strong>Deloitte Digital Launchpad — Session 3</strong><span>Apr 18 · 6:00 PM · Nelson 1130</span></div>
-            </div>
-            <div class="event-item">
-              <div class="event-dot" style="background:var(--red);"></div>
-              <div class="event-info"><strong>Club Basketball Practice</strong><span>Apr 19 · 5:00 PM · Carmichael Gym</span></div>
-            </div>
-            <div class="event-item">
-              <div class="event-dot" style="background:var(--gold);"></div>
-              <div class="event-info"><strong>BAP Big 4 Recruiting Panel</strong><span>Apr 22 · 7:00 PM · Nelson Hall</span></div>
-            </div>
-            <div class="event-item">
-              <div class="event-dot" style="background:var(--blue-info);"></div>
-              <div class="event-info"><strong>Deloitte Digital Launchpad — Session 4</strong><span>Apr 29 · 6:00 PM · Nelson 1130</span></div>
-            </div>
+            <div class="event-item"><div class="event-dot" style="background:var(--red);"></div><div class="event-info"><strong>Club Basketball Practice</strong><span>Today · 5:00 PM · Carmichael Gym</span></div></div>
+            <div class="event-item"><div class="event-dot" style="background:var(--gold);"></div><div class="event-info"><strong>Beta Alpha Psi — Chapter Meeting</strong><span>Apr 15 · 6:00 PM · Hillsborough 12</span></div></div>
+            <div class="event-item"><div class="event-dot" style="background:var(--blue);"></div><div class="event-info"><strong>Deloitte Digital Launchpad — Session 3</strong><span>Apr 18 · 6:00 PM · Nelson 1130</span></div></div>
+            <div class="event-item"><div class="event-dot" style="background:var(--red);"></div><div class="event-info"><strong>Club Basketball Practice</strong><span>Apr 19 · 5:00 PM · Carmichael Gym</span></div></div>
+            <div class="event-item"><div class="event-dot" style="background:var(--gold);"></div><div class="event-info"><strong>BAP Big 4 Recruiting Panel</strong><span>Apr 22 · 7:00 PM · Nelson Hall</span></div></div>
+            <div class="event-item"><div class="event-dot" style="background:var(--blue);"></div><div class="event-info"><strong>Deloitte Digital Launchpad — Session 4</strong><span>Apr 29 · 6:00 PM · Nelson 1130</span></div></div>
           </div>
         </div>
         <div class="cal-side-card">
@@ -744,7 +732,7 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
           </div>
           <div style="margin-top:14px;display:flex;gap:8px;">
             <button class="btn-primary" style="flex:1;" onclick="alert('📱 Test text sent!')">Test Text</button>
-            <button class="btn-secondary" style="flex:1;" onclick="alert('📧 Test email sent to djburns@ncsu.edu!')">Test Email</button>
+            <button class="btn-secondary" style="flex:1;" onclick="alert('📧 Test email sent!')">Test Email</button>
           </div>
         </div>
         <div class="cal-side-card">
@@ -752,11 +740,11 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
           <div class="form-group"><label>Event Name</label><input type="text" placeholder="e.g. BAP Study Session" /></div>
           <div class="form-group"><label>Date & Time</label><input type="datetime-local" /></div>
           <div class="form-group">
-            <label>Club</label>
+            <label>Club / Event</label>
             <select>
               <option>Beta Alpha Psi</option>
-              <option>Deloitte Digital Launchpad</option>
               <option>Club Basketball</option>
+              <option>Deloitte Digital Launchpad</option>
               <option>Personal</option>
             </select>
           </div>
@@ -769,132 +757,170 @@ body { font-family: 'Source Sans 3', sans-serif; font-weight: 400; color: var(--
 
 <script>
 // ── PAGE NAV ──
-function showPage(page) {
-  document.querySelectorAll('.page').forEach(p=>p.classList.remove('active'));
-  document.getElementById('page-'+page).classList.add('active');
-  document.querySelectorAll('.nav-link').forEach(l=>l.classList.remove('active'));
-  ({explore:0,messaging:1,manage:2,schedule:3})[page] !== undefined &&
-    (document.querySelectorAll('.nav-link')[({explore:0,messaging:1,manage:2,schedule:3})[page]].classList.add('active'));
+function showPage(p){
+  document.querySelectorAll('.page').forEach(x=>x.classList.remove('active'));
+  document.getElementById('page-'+p).classList.add('active');
+  document.querySelectorAll('.nav-link').forEach(x=>x.classList.remove('active'));
+  const map={explore:0,messaging:1,manage:2,schedule:3};
+  if(map[p]!==undefined) document.querySelectorAll('.nav-link')[map[p]].classList.add('active');
   window.scrollTo(0,0);
 }
-function scrollToClubs() { document.getElementById('club-section').scrollIntoView({behavior:'smooth'}); }
+function scrollToSection(id){ document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
 
 // ── PROFILE DROPDOWN ──
-function toggleProfile() {
-  document.getElementById('profileDropdown').classList.toggle('open');
-}
-function closeProfile() {
-  document.getElementById('profileDropdown').classList.remove('open');
-}
-document.addEventListener('click', function(e) {
-  if(!document.getElementById('navAvatar').contains(e.target) && !document.getElementById('profileDropdown').contains(e.target)) {
-    closeProfile();
-  }
+function toggleProfile(){ document.getElementById('profileDropdown').classList.toggle('open'); }
+function closeProfile(){ document.getElementById('profileDropdown').classList.remove('open'); }
+document.addEventListener('click',function(e){
+  if(!document.getElementById('navAvatar').contains(e.target)&&!document.getElementById('profileDropdown').contains(e.target)) closeProfile();
 });
 
+// ── EXPLORE TABS ──
+function switchExploreTab(tab){
+  document.getElementById('tab-clubs').classList.toggle('active', tab==='clubs');
+  document.getElementById('tab-events').classList.toggle('active', tab==='events');
+  document.getElementById('explore-clubs').style.display = tab==='clubs'?'block':'none';
+  document.getElementById('explore-events').style.display = tab==='events'?'block':'none';
+}
+
 // ── BANNER SLIDER ──
-const banners = [
-  {tag:'🏀 Welcome Back, DJ!', title:'Your WolfPack Community<br>Awaits This Semester', sub:'Explore clubs, manage your organizations, and stay connected across campus.', b1:'Explore All Clubs', b2:'My Schedule'},
-  {tag:'📊 Beta Alpha Psi', title:'Big 4 Recruiting Panel<br>April 22nd — Nelson Hall', sub:'Network with Deloitte, PwC, EY, and KPMG reps. Open to all accounting students.', b1:'Add to Calendar', b2:'Learn More'},
-  {tag:'🎉 Spring Involvement Fair', title:'April 20th on the Brickyard<br>Meet 200+ Clubs', sub:'Free food, free merch, and a chance to discover something new. All students welcome!', b1:'View All Clubs', b2:'Add to Schedule'},
+const banners=[
+  {tag:'🏀 Welcome Back, DJ!',title:'Your WolfPack Community<br>Awaits This Semester',sub:'Explore clubs, discover events, and stay connected across campus.',b1:'Explore Clubs & Events',b2:'My Schedule'},
+  {tag:'📊 Beta Alpha Psi',title:'Big 4 Recruiting Panel<br>April 22nd — Nelson Hall',sub:'Network with Deloitte, PwC, EY, and KPMG reps. Open to all accounting students.',b1:'Add to Calendar',b2:'Learn More'},
+  {tag:'🎉 Spring Involvement Fair',title:'April 20th on the Brickyard<br>Meet 200+ Clubs',sub:'Free food, free merch, and a chance to discover something new.',b1:'View All Clubs',b2:'Add to Schedule'},
 ];
-let currentBanner = 0;
-function setBanner(idx) {
-  currentBanner = idx;
-  const b = banners[idx];
-  document.getElementById('bannerContent').innerHTML = `
-    <div class="banner-tag">${b.tag}</div>
-    <div class="banner-title">${b.title}</div>
-    <div class="banner-sub">${b.sub}</div>
-    <div class="banner-actions">
-      <button class="btn-banner-primary">${b.b1}</button>
-      <button class="btn-banner-outline">${b.b2}</button>
-    </div>`;
+let currentBanner=0;
+function setBanner(idx){
+  currentBanner=idx; const b=banners[idx];
+  document.getElementById('bannerContent').innerHTML=`<div class="banner-tag">${b.tag}</div><div class="banner-title">${b.title}</div><div class="banner-sub">${b.sub}</div><div class="banner-actions"><button class="btn-banner-primary">${b.b1}</button><button class="btn-banner-outline">${b.b2}</button></div>`;
   document.querySelectorAll('.banner-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
 }
-function changeBanner(dir) { setBanner((currentBanner+dir+banners.length)%banners.length); }
-setInterval(()=>changeBanner(1), 5500);
+function changeBanner(dir){ setBanner((currentBanner+dir+banners.length)%banners.length); }
+setInterval(()=>changeBanner(1),5500);
 
-// ── CLUBS ──
-const clubs = [
-  {name:'Beta Alpha Psi', emoji:'📊', color:'#fff8e1', category:'accounting', tags:['tag-gold','tag-red'], tagLabels:['Accounting','Honors'], desc:'National accounting honors society. Weekly meetings, Big 4 networking events, CPA exam prep, and recruiting panels.', members:34, joined:true},
-  {name:'Deloitte Digital Launchpad', emoji:'💼', color:'#e8f0fb', category:'consulting', tags:['tag-blue'], tagLabels:['Consulting'], desc:'Four-session university program with Deloitte covering consulting, data analysis, and business process automation.', members:38, joined:true},
-  {name:'Club Basketball', emoji:'🏀', color:'#fce8e8', category:'sports', tags:['tag-red'], tagLabels:['Sports'], desc:'Intramural and club-level basketball at Carmichael Gym. Practice Wed & Fri evenings. All levels welcome.', members:22, joined:true},
-  {name:'Finance & Consulting Club', emoji:'📈', color:'#e8f0fb', category:'consulting', tags:['tag-blue','tag-gold'], tagLabels:['Finance','Consulting'], desc:'Case competitions, mock interviews with Big 4, and finance industry networking events every semester.', members:80, joined:false},
-  {name:'Poole Accounting Society', emoji:'🏛️', color:'#fff3cd', category:'accounting', tags:['tag-gold'], tagLabels:['Accounting'], desc:'Open to all accounting students. Networking, exam prep, and career workshops with Poole faculty and alumni.', members:55, joined:false},
-  {name:'Data Analytics Club', emoji:'📉', color:'#e8f5e9', category:'tech', tags:['tag-blue','tag-green'], tagLabels:['Analytics','Tech'], desc:'Excel, Tableau, and Power BI workshops — great complement to data analysis coursework.', members:67, joined:false},
-  {name:'NC State Basketball Supporters', emoji:'🐺', color:'#fce8e8', category:'sports', tags:['tag-red'], tagLabels:['Sports','Spirit'], desc:'Official student supporter club. Watch parties, courtside access, and game day events all semester.', members:210, joined:false},
-  {name:'Black Business Students Assoc.', emoji:'✊', color:'#f3e8ff', category:'accounting', tags:['tag-purple','tag-gold'], tagLabels:['Business','Diversity'], desc:'Supporting Black students in business. Professional development, mentorship, and community building.', members:48, joined:false},
-  {name:'Entrepreneurship Society', emoji:'🚀', color:'#e8f5e9', category:'consulting', tags:['tag-green','tag-gold'], tagLabels:['Business','Startups'], desc:'Pitch competitions, startup workshops, and connections to Raleigh\'s growing tech ecosystem.', members:120, joined:false},
-  {name:'ACM Computing Club', emoji:'👨‍💻', color:'#e8f0fb', category:'tech', tags:['tag-blue'], tagLabels:['Technology'], desc:'Weekly coding projects, hackathons, and career workshops for all skill levels.', members:48, joined:false},
-  {name:'Wolfpack Runners', emoji:'🏃', color:'#e8f5e9', category:'sports', tags:['tag-green'], tagLabels:['Sports'], desc:'Training runs, 5K sign-ups, and a supportive fitness community for all paces.', members:95, joined:false},
-  {name:'Model UN', emoji:'🌍', color:'#fce8e8', category:'consulting', tags:['tag-red','tag-blue'], tagLabels:['Service','Global'], desc:'Debate global issues, represent countries, and develop diplomatic and public speaking skills.', members:33, joined:false},
+// ── MY CLUBS PICKER ──
+function selectClub(id){
+  ['bap','bball','launchpad'].forEach(k=>{
+    document.getElementById('pick-'+k).classList.toggle('active',k===id);
+    document.getElementById('detail-'+k).style.display = k===id?'block':'none';
+  });
+}
+
+// ── CLUBS DATA ──
+const clubs=[
+  {name:'Beta Alpha Psi',emoji:'📊',color:'#fff8e1',category:'accounting',tags:['tag-gold','tag-red'],tagLabels:['Accounting','Honors'],desc:'National accounting honors society. Big 4 networking, CPA exam prep, and recruiting panels.',members:34,joined:true},
+  {name:'Club Basketball',emoji:'🏀',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports'],desc:'Intramural and club-level basketball at Carmichael Gym. Practice Wed & Fri evenings.',members:22,joined:true},
+  {name:'Finance & Consulting Club',emoji:'📈',color:'#e8f0fb',category:'consulting',tags:['tag-blue','tag-gold'],tagLabels:['Finance','Consulting'],desc:'Case competitions, mock interviews with Big 4, and finance industry networking events.',members:80,joined:false},
+  {name:'Poole Accounting Society',emoji:'🏛️',color:'#fff3cd',category:'accounting',tags:['tag-gold'],tagLabels:['Accounting'],desc:'Open to all accounting students. Networking, exam prep, and career workshops.',members:55,joined:false},
+  {name:'Data Analytics Club',emoji:'📉',color:'#e8f5e9',category:'tech',tags:['tag-blue','tag-green'],tagLabels:['Analytics','Tech'],desc:'Excel, Tableau, and Power BI workshops for data-driven students.',members:67,joined:false},
+  {name:'NC State Basketball Supporters',emoji:'🐺',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports','Spirit'],desc:'Official student supporter club. Watch parties, courtside access, and game day events.',members:210,joined:false},
+  {name:'Black Business Students Assoc.',emoji:'✊',color:'#f3e8ff',category:'accounting',tags:['tag-purple','tag-gold'],tagLabels:['Business','Diversity'],desc:'Supporting Black students in business. Professional development and mentorship.',members:48,joined:false},
+  {name:'Entrepreneurship Society',emoji:'🚀',color:'#e8f5e9',category:'consulting',tags:['tag-green','tag-gold'],tagLabels:['Business','Startups'],desc:'Pitch competitions, startup workshops, and Raleigh tech ecosystem connections.',members:120,joined:false},
+  {name:'ACM Computing Club',emoji:'👨‍💻',color:'#e8f0fb',category:'tech',tags:['tag-blue'],tagLabels:['Technology'],desc:'Weekly coding projects, hackathons, and career workshops for all skill levels.',members:48,joined:false},
+  {name:'Model UN',emoji:'🌍',color:'#fce8e8',category:'consulting',tags:['tag-red','tag-blue'],tagLabels:['Service','Global'],desc:'Debate global issues, represent countries, and develop diplomatic skills.',members:33,joined:false},
 ];
-let currentFilter = 'all';
 
-function renderClubs(list) {
-  const grid = document.getElementById('clubsGrid');
-  if(!list.length){grid.innerHTML='<p style="color:var(--text-muted);padding:20px;">No clubs found.</p>';return;}
-  grid.innerHTML = list.map(c=>`
-    <div class="club-card">
-      <div class="club-card-banner" style="background:${c.color};">${c.emoji}</div>
-      <div class="club-card-body">
-        <div class="club-card-tags">${c.tags.map((t,i)=>`<span class="tag ${t}">${c.tagLabels[i]}</span>`).join('')}</div>
-        <h3>${c.name}</h3>
-        <p>${c.desc}</p>
-        <div class="club-card-footer">
+// ── EVENTS DATA ──
+const events=[
+  {name:'Deloitte Digital Launchpad',emoji:'💼',color:'#e8f0fb',category:'workshop',tags:['tag-blue','tag-gold'],tagLabels:['Consulting','Recruiting'],desc:'4-session Deloitte-led program covering consulting, data analysis, and cloud platforms. Direct recruiting pipeline.',date:'Sessions every 2 weeks',registered:true},
+  {name:'Spring Involvement Fair',emoji:'🎪',color:'#fce8e8',category:'social',tags:['tag-red'],tagLabels:['Social'],desc:'Meet reps from 200+ clubs on the Brickyard. Free food, merch, and a chance to find your community.',date:'Apr 20 · 11am–3pm',registered:false},
+  {name:'BAP Big 4 Recruiting Panel',emoji:'🏦',color:'#fff8e1',category:'recruiting',tags:['tag-gold','tag-blue'],tagLabels:['Recruiting','Accounting'],desc:'Network with Deloitte, PwC, EY, and KPMG representatives. Open to all Poole students.',date:'Apr 22 · 7:00 PM · Nelson Hall',registered:true},
+  {name:'CPA Exam Info Session',emoji:'📝',color:'#e8f5e9',category:'workshop',tags:['tag-green','tag-gold'],tagLabels:['Workshop','Accounting'],desc:'Learn about the CPA exam pathway, eligibility, and preparation resources from Poole faculty.',date:'Apr 24 · 5:00 PM · Nelson 2210',registered:false},
+  {name:'Mock Interview Workshop',emoji:'🎤',color:'#f3e8ff',category:'recruiting',tags:['tag-purple','tag-blue'],tagLabels:['Recruiting','Career'],desc:'Practice behavioral and technical interviews with Poole alumni and career coaches.',date:'Apr 16 · 4:00 PM · Talley SC',registered:false},
+  {name:'Intramural Basketball Tournament',emoji:'🏆',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports'],desc:'End-of-semester intramural tournament. All club teams compete for the Wolfpack Cup.',date:'Apr 30 · Carmichael Gym',registered:true},
+];
+
+let clubFilter='all', eventFilter='all';
+
+function renderClubs(list){
+  const g=document.getElementById('clubsGrid');
+  if(!list.length){g.innerHTML='<p style="color:var(--text-muted);padding:20px;">No clubs found.</p>';return;}
+  g.innerHTML=list.map(c=>`
+    <div class="card">
+      <div class="card-banner" style="background:${c.color};">${c.emoji}</div>
+      <div class="card-body">
+        <div class="card-tags">${c.tags.map((t,i)=>`<span class="tag ${t}">${c.tagLabels[i]}</span>`).join('')}</div>
+        <h3>${c.name}</h3><p>${c.desc}</p>
+        <div class="card-footer">
           <div class="member-count">👥 ${c.members} members</div>
-          ${c.joined?`<span class="btn-joined">✓ Joined</span>`:`<button class="btn-join" onclick="joinClub(this,'${c.name}')">Join</button>`}
+          ${c.joined?`<span class="btn-joined">✓ Joined</span>`:`<button class="btn-join" onclick="joinItem(this,'${c.name}')">Join</button>`}
         </div>
       </div>
     </div>`).join('');
 }
 
-function filterClubs(query) {
-  const q = query.toLowerCase();
-  let filtered = clubs.filter(c=>currentFilter==='all'||c.category===currentFilter);
-  if(q) filtered = filtered.filter(c=>c.name.toLowerCase().includes(q)||c.desc.toLowerCase().includes(q));
-  renderClubs(filtered);
+function renderEvents(list){
+  const g=document.getElementById('eventsGrid');
+  if(!list.length){g.innerHTML='<p style="color:var(--text-muted);padding:20px;">No events found.</p>';return;}
+  g.innerHTML=list.map(e=>`
+    <div class="card event-card">
+      <div class="card-banner" style="background:${e.color};">${e.emoji}</div>
+      <div class="card-body">
+        <div class="event-date-badge">📅 ${e.date}</div>
+        <div class="card-tags">${e.tags.map((t,i)=>`<span class="tag ${t}">${e.tagLabels[i]}</span>`).join('')}</div>
+        <h3>${e.name}</h3><p>${e.desc}</p>
+        <div class="card-footer">
+          <span></span>
+          ${e.registered?`<span class="btn-joined">✓ Registered</span>`:`<button class="btn-join" onclick="joinItem(this,'${e.name}')">Register</button>`}
+        </div>
+      </div>
+    </div>`).join('');
 }
 
-function setFilter(cat, btn) {
-  currentFilter = cat;
-  document.querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+function filterClubs(q){
+  const query=q.toLowerCase();
+  let list=clubs.filter(c=>clubFilter==='all'||c.category===clubFilter);
+  if(query) list=list.filter(c=>c.name.toLowerCase().includes(query)||c.desc.toLowerCase().includes(query));
+  renderClubs(list);
+}
+function filterEvents(q){
+  const query=q.toLowerCase();
+  let list=events.filter(e=>eventFilter==='all'||e.category===eventFilter);
+  if(query) list=list.filter(e=>e.name.toLowerCase().includes(query)||e.desc.toLowerCase().includes(query));
+  renderEvents(list);
+}
+function setClubFilter(cat,btn){
+  clubFilter=cat;
+  btn.closest('.search-bar').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
   btn.classList.add('active');
-  filterClubs(document.querySelector('.search-input-wrap input').value);
+  filterClubs(document.querySelector('#explore-clubs .search-input-wrap input').value);
 }
-
-function joinClub(btn, name) {
-  btn.textContent='✓ Joined'; btn.className='btn-joined';
+function setEventFilter(cat,btn){
+  eventFilter=cat;
+  btn.closest('.search-bar').querySelectorAll('.filter-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  filterEvents(document.querySelector('#explore-events .search-input-wrap input').value);
+}
+function joinItem(btn,name){
+  btn.textContent=btn.textContent==='Register'?'✓ Registered':'✓ Joined';
+  btn.className='btn-joined';
   const t=document.createElement('div');
   t.textContent=`Joined ${name}! 🎉`;
   Object.assign(t.style,{position:'fixed',bottom:'24px',right:'24px',background:'var(--green)',color:'#fff',padding:'12px 20px',borderRadius:'8px',fontFamily:"'Montserrat',sans-serif",fontWeight:'700',fontSize:'0.9rem',zIndex:'9999',boxShadow:'0 4px 12px rgba(0,0,0,0.2)'});
   document.body.appendChild(t); setTimeout(()=>t.remove(),3000);
 }
 renderClubs(clubs);
+renderEvents(events);
 
 // ── MESSAGING ──
-function setThread(el,name,emoji,bg,sub) {
+function setThread(el,name,emoji,bg,sub){
   document.querySelectorAll('.msg-thread').forEach(t=>t.classList.remove('active'));
   el.classList.add('active');
   document.getElementById('chatName').textContent=name;
   document.getElementById('chatSub').textContent=sub;
-  const av=document.getElementById('chatAvatar');
-  av.textContent=emoji; av.style.background=bg;
+  const av=document.getElementById('chatAvatar'); av.textContent=emoji; av.style.background=bg;
   const badge=el.querySelector('.msg-unread'); if(badge) badge.remove();
 }
 function handleMsgKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
 function sendMsg(){
-  const input=document.getElementById('msgInput');
-  const text=input.value.trim(); if(!text) return;
-  const body=document.getElementById('chatBody');
-  const wrap=document.createElement('div'); wrap.className='msg-bubble-wrap mine';
+  const input=document.getElementById('msgInput'); const text=input.value.trim(); if(!text) return;
+  const body=document.getElementById('chatBody'); const wrap=document.createElement('div');
+  wrap.className='msg-bubble-wrap mine';
   wrap.innerHTML=`<div class="bubble-avatar" style="background:var(--red);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;">DJ</div><div><div class="bubble bubble-mine">${text}</div><div class="bubble-time">You · Just now</div></div>`;
   body.appendChild(wrap); input.value=''; body.scrollTop=body.scrollHeight;
 }
 
 // ── CALENDAR ──
-let calYear=2026, calMonth=3;
+let calYear=2026,calMonth=3;
 const monthNames=['January','February','March','April','May','June','July','August','September','October','November','December'];
 const calEvents={
   '2026-4-13':[{text:'🏀 Basketball',cls:'ev-red'}],
@@ -909,14 +935,11 @@ const calEvents={
   '2026-4-29':[{text:'💼 Launchpad S4',cls:'ev-blue'}],
   '2026-4-30':[{text:'🏀 Basketball',cls:'ev-red'}],
 };
-
 function renderCalendar(){
   document.getElementById('calTitle').textContent=`${monthNames[calMonth]} ${calYear}`;
   const grid=document.getElementById('calGrid'); grid.innerHTML='';
   ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'].forEach(d=>{const h=document.createElement('div');h.className='cal-day-header';h.textContent=d;grid.appendChild(h);});
-  const first=new Date(calYear,calMonth,1).getDay();
-  const total=new Date(calYear,calMonth+1,0).getDate();
-  const prevTotal=new Date(calYear,calMonth,0).getDate();
+  const first=new Date(calYear,calMonth,1).getDay(),total=new Date(calYear,calMonth+1,0).getDate(),prevTotal=new Date(calYear,calMonth,0).getDate();
   for(let i=first-1;i>=0;i--){const d=document.createElement('div');d.className='cal-day other-month';d.innerHTML=`<div class="cal-day-num">${prevTotal-i}</div>`;grid.appendChild(d);}
   const today=new Date();
   for(let day=1;day<=total;day++){
@@ -928,12 +951,11 @@ function renderCalendar(){
     const evs=(calEvents[key]||[]).map(e=>`<div class="cal-event ${e.cls}">${e.text}</div>`).join('');
     d.innerHTML=numEl+evs; grid.appendChild(d);
   }
-  const cells=first+total; const rem=Math.ceil(cells/7)*7-cells;
+  const rem=Math.ceil((first+total)/7)*7-(first+total);
   for(let i=1;i<=rem;i++){const d=document.createElement('div');d.className='cal-day other-month';d.innerHTML=`<div class="cal-day-num">${i}</div>`;grid.appendChild(d);}
 }
 function changeMonth(dir){calMonth+=dir;if(calMonth>11){calMonth=0;calYear++;}if(calMonth<0){calMonth=11;calYear--;}renderCalendar();}
 renderCalendar();
-
 function toggleNotif(id){document.getElementById(id).classList.toggle('on');}
 </script>
 </body>
