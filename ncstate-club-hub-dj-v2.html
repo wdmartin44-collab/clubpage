@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>NC State — WolfPack Hub | DJ Burns</title>
+<title>NC State Club Hub | DJ Burns</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700;800;900&family=Source+Sans+3:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
 <style>
@@ -55,7 +55,7 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 .pd-badges{display:flex;flex-direction:column;gap:6px;margin-bottom:14px;}
 .pd-badge{display:flex;align-items:center;gap:8px;padding:8px 10px;background:var(--off-white);border-radius:6px;font-size:0.83rem;}
 .pd-badge .emoji{font-size:1rem;}
-.pd-badge strong{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;display:block;}
+.pd-badge strong{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.82rem;display:block;color:var(--text);}
 .pd-badge span{font-size:0.72rem;color:var(--text-muted);}
 .pd-links{border-top:1px solid var(--gray-light);padding-top:12px;display:flex;flex-direction:column;gap:4px;}
 .pd-link{background:none;border:none;text-align:left;padding:8px 10px;border-radius:6px;font-family:'Source Sans 3',sans-serif;font-size:0.88rem;cursor:pointer;color:var(--text);width:100%;display:flex;align-items:center;gap:8px;transition:background 0.15s;}
@@ -70,7 +70,9 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 .hero-banner{background:var(--red);color:#fff;position:relative;overflow:hidden;min-height:220px;}
 .hero-banner::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none'%3E%3Cg fill='%23ffffff' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");}
 .banner-slider{position:relative;display:flex;align-items:center;justify-content:space-between;padding:40px 48px;min-height:220px;}
-.banner-content{position:relative;z-index:1;max-width:700px;}
+.banner-content{position:relative;z-index:1;max-width:700px;transition:opacity 0.4s ease,transform 0.4s ease;}
+.banner-content.fade-out{opacity:0;transform:translateY(6px);}
+.banner-content.fade-in{opacity:1;transform:translateY(0);}
 .banner-tag{display:inline-block;background:rgba(255,255,255,0.2);border:1px solid rgba(255,255,255,0.3);border-radius:100px;padding:3px 12px;font-size:0.72rem;font-weight:600;letter-spacing:0.1em;text-transform:uppercase;margin-bottom:12px;}
 .banner-title{font-family:'Montserrat',sans-serif;font-size:clamp(1.5rem,3vw,2.2rem);font-weight:800;line-height:1.15;margin-bottom:10px;}
 .banner-sub{font-size:1rem;opacity:0.9;margin-bottom:20px;}
@@ -111,6 +113,14 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 .icon-red{background:#fce8e8;} .icon-green{background:var(--green-light);} .icon-blue{background:var(--blue-bg);} .icon-gold{background:var(--gold-bg);} .icon-purple{background:var(--purple-bg);}
 .quick-card h3{font-family:'Montserrat',sans-serif;font-size:0.95rem;font-weight:700;margin-bottom:6px;}
 .quick-card p{font-size:0.8rem;color:var(--text-muted);line-height:1.5;}
+
+/* ── REC CARDS ── */
+.rec-card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;padding-bottom:10px;border-bottom:2px solid var(--blue-bg);}
+.rec-card-label{font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.75rem;letter-spacing:0.09em;text-transform:uppercase;color:var(--blue);display:flex;align-items:center;gap:6px;}
+.rec-dismiss{background:none;border:none;font-size:0.75rem;color:var(--gray);cursor:pointer;font-family:'Source Sans 3',sans-serif;}
+.rec-dismiss:hover{color:var(--text);}
+.card.rec-card{border:2px solid var(--blue-bg);position:relative;}
+.card.rec-card::before{content:'⭐ Recommended';position:absolute;top:8px;left:8px;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:4px;}
 
 /* ── TAB BAR ── */
 .tab-bar{display:flex;gap:4px;border-bottom:2px solid var(--gray-light);margin-bottom:24px;}
@@ -208,7 +218,8 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 .stat-box .lbl{font-size:0.75rem;color:var(--text-muted);}
 
 /* ── MESSAGING ── */
-.msg-layout{display:grid;grid-template-columns:280px 1fr;background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);overflow:hidden;height:calc(100vh - 200px);min-height:500px;box-shadow:var(--shadow);}
+.msg-layout{display:grid;grid-template-columns:280px 1fr;background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);overflow:hidden;height:calc(100vh - 160px);min-height:520px;box-shadow:var(--shadow);}
+.msg-main{display:flex;flex-direction:column;min-height:0;overflow:hidden;}
 .msg-sidebar{border-right:1px solid var(--gray-light);display:flex;flex-direction:column;}
 .msg-sidebar-header{padding:16px;border-bottom:1px solid var(--gray-light);font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.95rem;display:flex;align-items:center;justify-content:space-between;}
 .msg-sidebar-header button{background:var(--red);color:#fff;border:none;width:28px;height:28px;border-radius:50%;font-size:1.1rem;cursor:pointer;display:flex;align-items:center;justify-content:center;}
@@ -233,7 +244,7 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 .msg-actions{display:flex;gap:8px;}
 .msg-action-btn{background:var(--off-white);border:1px solid var(--gray-light);padding:6px 12px;border-radius:6px;font-size:0.78rem;cursor:pointer;display:flex;align-items:center;gap:4px;transition:background 0.15s;}
 .msg-action-btn:hover{background:var(--gray-light);}
-.msg-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;}
+.msg-body{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:16px;min-height:0;}
 .msg-bubble-wrap{display:flex;gap:10px;}
 .msg-bubble-wrap.mine{flex-direction:row-reverse;}
 .bubble-avatar{width:32px;height:32px;border-radius:50%;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:0.9rem;}
@@ -291,9 +302,9 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 <!-- NAV -->
 <nav class="topnav">
   <div class="nav-brand" onclick="showPage('explore')">
-    <div class="ncstate-logo"><span>NC STATE</span><span>UNIVERSITY</span></div>
+    <span style="font-family:'Montserrat',sans-serif;font-weight:900;font-size:0.95rem;letter-spacing:0.08em;opacity:0.9;">NC STATE</span>
     <div class="nav-divider"></div>
-    <div class="hub-name">🐺 WolfPack Hub</div>
+    <span style="font-family:'Montserrat',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:0.01em;">Club Hub</span>
   </div>
   <div class="nav-links">
     <button class="nav-link active" onclick="showPage('explore')">Explore</button>
@@ -356,21 +367,6 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
     </div>
   </div>
 
-  <div class="rec-banner">
-    <div class="rec-banner-icon">ℹ️</div>
-    <div class="rec-banner-text">
-      <strong>Recommended for You</strong>
-      <span>Based on your major, interests, and activity — Accounting · Business · Basketball</span>
-    </div>
-    <div class="rec-pills">
-      <button class="rec-pill">📊 Beta Alpha Psi</button>
-      <button class="rec-pill">💼 Deloitte Launchpad</button>
-      <button class="rec-pill">🏀 Club Basketball</button>
-      <button class="rec-pill">📈 Finance Club</button>
-      <button class="rec-pill">🎯 Consulting Club</button>
-    </div>
-  </div>
-
   <div class="main-content">
     <div class="section-header"><div class="section-title">Quick Actions</div></div>
     <div class="quick-grid">
@@ -398,6 +394,31 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
         <div class="quick-icon icon-purple">➕</div>
         <h3>Start a Club</h3>
         <p>Submit a new club proposal to student government.</p>
+      </div>
+    </div>
+
+    <!-- Today's Events -->
+    <div style="margin-bottom:36px;">
+      <div class="section-header">
+        <div class="section-title">📅 Today — April 13</div>
+        <a class="section-link" onclick="showPage('schedule')">Full Schedule →</a>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+        <div style="background:#fff;border:1px solid var(--gray-light);border-radius:var(--radius);padding:16px 18px;display:flex;align-items:center;gap:14px;box-shadow:var(--shadow);transition:box-shadow 0.2s,transform 0.2s;" onmouseover="this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow-lg)'" onmouseout="this.style.transform='';this.style.boxShadow='var(--shadow)'">
+          <div style="width:44px;height:44px;border-radius:50%;background:#fce8e8;display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">🏀</div>
+          <div style="flex:1;min-width:0;">
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;margin-bottom:2px;">Club Basketball Practice</div>
+            <div style="font-size:0.78rem;color:var(--text-muted);">5:00 PM · Carmichael Gym · Court B</div>
+          </div>
+          <div style="background:var(--red);color:#fff;border-radius:6px;padding:3px 10px;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.72rem;white-space:nowrap;flex-shrink:0;">Today</div>
+        </div>
+        <div style="background:#fff8f8;border:1px dashed var(--gray-light);border-radius:var(--radius);padding:16px 18px;display:flex;align-items:center;gap:14px;cursor:pointer;" onclick="showPage('schedule')">
+          <div style="width:44px;height:44px;border-radius:50%;background:var(--off-white);display:flex;align-items:center;justify-content:center;font-size:1.3rem;flex-shrink:0;">➕</div>
+          <div>
+            <div style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:var(--text-muted);">Add to Today</div>
+            <div style="font-size:0.78rem;color:var(--gray);">Open scheduler to add an event</div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -455,43 +476,53 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
         <div class="msg-sidebar-header">Conversations <button>+</button></div>
         <div class="msg-search"><input placeholder="Search messages..." /></div>
         <div class="msg-list">
-          <div class="msg-thread active" onclick="setThread(this,'Beta Alpha Psi — Officers','📊','#fff8e1','34 members · Last active 5 min ago')">
+
+          <!-- BAP General -->
+          <div class="msg-thread active" onclick="loadThread('bap-general',this)">
             <div class="msg-avatar" style="background:#fff8e1;">📊</div>
             <div class="msg-thread-info">
-              <div class="msg-thread-name">Beta Alpha Psi <span class="msg-thread-time">5m ago</span></div>
-              <div class="msg-thread-preview">Chapter meeting Tuesday 6pm</div>
+              <div class="msg-thread-name">Beta Alpha Psi — General <span class="msg-thread-time">5m ago</span></div>
+              <div class="msg-thread-preview">Don't forget Tuesday's chapter meeting!</div>
             </div>
             <div class="msg-unread">2</div>
           </div>
-          <div class="msg-thread" onclick="setThread(this,'Club Basketball','🏀','#fce8e8','22 players · Practice Wed & Fri')">
+
+          <!-- BAP Exec Board (private) -->
+          <div class="msg-thread" onclick="loadThread('bap-exec',this)">
+            <div class="msg-avatar" style="background:#fce8e8;font-size:0.85rem;font-family:'Montserrat',sans-serif;font-weight:800;color:var(--red);">🔒</div>
+            <div class="msg-thread-info">
+              <div class="msg-thread-name">BAP Exec Board <span class="msg-thread-time">32m ago</span></div>
+              <div class="msg-thread-preview">DJ — can you lead the CPA panel intro?</div>
+            </div>
+            <div class="msg-unread">3</div>
+          </div>
+
+          <!-- Club Basketball -->
+          <div class="msg-thread" onclick="loadThread('basketball',this)">
             <div class="msg-avatar" style="background:#fce8e8;">🏀</div>
             <div class="msg-thread-info">
               <div class="msg-thread-name">Club Basketball <span class="msg-thread-time">1h ago</span></div>
-              <div class="msg-thread-preview">Practice moved to Carmichael tomorrow</div>
+              <div class="msg-thread-preview">Friday practice — Carmichael Court B</div>
             </div>
           </div>
-          <div class="msg-thread" onclick="setThread(this,'Deloitte Digital Launchpad','💼','#e8f0fb','38 students · Tyler Ellis & Prof. Kraft')">
+
+          <!-- Deloitte Launchpad -->
+          <div class="msg-thread" onclick="loadThread('launchpad',this)">
             <div class="msg-avatar" style="background:#e8f0fb;">💼</div>
             <div class="msg-thread-info">
               <div class="msg-thread-name">Deloitte Launchpad <span class="msg-thread-time">3h ago</span></div>
-              <div class="msg-thread-preview">Please fill out the dietary survey ASAP!</div>
+              <div class="msg-thread-preview">Session 3 prep — read the case brief!</div>
             </div>
             <div class="msg-unread">1</div>
           </div>
-          <div class="msg-thread" onclick="setThread(this,'Finance & Consulting Club','📈','#e8f0fb','80 members')">
-            <div class="msg-avatar" style="background:#e8f0fb;">📈</div>
-            <div class="msg-thread-info">
-              <div class="msg-thread-name">Finance & Consulting <span class="msg-thread-time">Yesterday</span></div>
-              <div class="msg-thread-preview">Mock interview sign-ups are open</div>
-            </div>
-          </div>
+
         </div>
       </div>
       <div class="msg-main">
         <div class="msg-main-header">
           <div class="msg-avatar" id="chatAvatar" style="background:#fff8e1;font-size:1.3rem;">📊</div>
           <div class="msg-main-info">
-            <strong id="chatName">Beta Alpha Psi — Officers</strong>
+            <strong id="chatName">Beta Alpha Psi — General</strong>
             <span id="chatSub">34 members · Last active 5 min ago</span>
           </div>
           <div class="msg-actions">
@@ -500,36 +531,7 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
             <button class="msg-action-btn" onclick="showPage('schedule')">📅 Schedule</button>
           </div>
         </div>
-        <div class="msg-body" id="chatBody">
-          <div class="msg-bubble-wrap">
-            <div class="bubble-avatar" style="background:#fff8e1;">📊</div>
-            <div>
-              <div class="bubble bubble-other">Hey everyone! Reminder: Chapter meeting this <strong>Tuesday at 6pm in Hillsborough 12</strong>. Big 4 recruiting panel prep — come with questions!</div>
-              <div class="bubble-time">President Aisha · 10:04 AM</div>
-            </div>
-          </div>
-          <div class="msg-bubble-wrap">
-            <div class="bubble-avatar" style="background:#e8f0fb;">🧑</div>
-            <div>
-              <div class="bubble bubble-other">CPA exam info session is next week too. Highly recommend for all accounting juniors!</div>
-              <div class="bubble-time">VP Marcus · 10:18 AM</div>
-            </div>
-          </div>
-          <div class="msg-bubble-wrap mine">
-            <div class="bubble-avatar" style="background:var(--red);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;">DJ</div>
-            <div>
-              <div class="bubble bubble-mine">Thanks — will be there Tuesday! Also in the Deloitte Digital Launchpad this semester so really looking forward to the panel 💼</div>
-              <div class="bubble-time">You · 10:22 AM</div>
-            </div>
-          </div>
-          <div class="msg-bubble-wrap">
-            <div class="bubble-avatar" style="background:#fff8e1;">📊</div>
-            <div>
-              <div class="bubble bubble-other">Great talking point at the panel DJ — definitely bring that up! 🔥</div>
-              <div class="bubble-time">President Aisha · 10:25 AM</div>
-            </div>
-          </div>
-        </div>
+        <div class="msg-body" id="chatBody"></div>
         <div class="msg-input-area">
           <textarea id="msgInput" rows="1" placeholder="Send a message…" onkeydown="handleMsgKey(event)"></textarea>
           <button class="send-btn" onclick="sendMsg()">&#9654;</button>
@@ -791,7 +793,14 @@ const banners=[
 let currentBanner=0;
 function setBanner(idx){
   currentBanner=idx; const b=banners[idx];
-  document.getElementById('bannerContent').innerHTML=`<div class="banner-tag">${b.tag}</div><div class="banner-title">${b.title}</div><div class="banner-sub">${b.sub}</div><div class="banner-actions"><button class="btn-banner-primary">${b.b1}</button><button class="btn-banner-outline">${b.b2}</button></div>`;
+  const el=document.getElementById('bannerContent');
+  el.classList.add('fade-out');
+  setTimeout(()=>{
+    el.innerHTML=`<div class="banner-tag">${b.tag}</div><div class="banner-title">${b.title}</div><div class="banner-sub">${b.sub}</div><div class="banner-actions"><button class="btn-banner-primary">${b.b1}</button><button class="btn-banner-outline">${b.b2}</button></div>`;
+    el.classList.remove('fade-out');
+    el.classList.add('fade-in');
+    setTimeout(()=>el.classList.remove('fade-in'),400);
+  },380);
   document.querySelectorAll('.banner-dot').forEach((d,i)=>d.classList.toggle('active',i===idx));
 }
 function changeBanner(dir){ setBanner((currentBanner+dir+banners.length)%banners.length); }
@@ -805,67 +814,62 @@ function selectClub(id){
   });
 }
 
-// ── CLUBS DATA ──
+// ── CLUBS DATA (only not-joined; rec=true = show first with badge) ──
 const clubs=[
-  {name:'Beta Alpha Psi',emoji:'📊',color:'#fff8e1',category:'accounting',tags:['tag-gold','tag-red'],tagLabels:['Accounting','Honors'],desc:'National accounting honors society. Big 4 networking, CPA exam prep, and recruiting panels.',members:34,joined:true},
-  {name:'Club Basketball',emoji:'🏀',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports'],desc:'Intramural and club-level basketball at Carmichael Gym. Practice Wed & Fri evenings.',members:22,joined:true},
-  {name:'Finance & Consulting Club',emoji:'📈',color:'#e8f0fb',category:'consulting',tags:['tag-blue','tag-gold'],tagLabels:['Finance','Consulting'],desc:'Case competitions, mock interviews with Big 4, and finance industry networking events.',members:80,joined:false},
-  {name:'Poole Accounting Society',emoji:'🏛️',color:'#fff3cd',category:'accounting',tags:['tag-gold'],tagLabels:['Accounting'],desc:'Open to all accounting students. Networking, exam prep, and career workshops.',members:55,joined:false},
-  {name:'Data Analytics Club',emoji:'📉',color:'#e8f5e9',category:'tech',tags:['tag-blue','tag-green'],tagLabels:['Analytics','Tech'],desc:'Excel, Tableau, and Power BI workshops for data-driven students.',members:67,joined:false},
-  {name:'NC State Basketball Supporters',emoji:'🐺',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports','Spirit'],desc:'Official student supporter club. Watch parties, courtside access, and game day events.',members:210,joined:false},
-  {name:'Black Business Students Assoc.',emoji:'✊',color:'#f3e8ff',category:'accounting',tags:['tag-purple','tag-gold'],tagLabels:['Business','Diversity'],desc:'Supporting Black students in business. Professional development and mentorship.',members:48,joined:false},
-  {name:'Entrepreneurship Society',emoji:'🚀',color:'#e8f5e9',category:'consulting',tags:['tag-green','tag-gold'],tagLabels:['Business','Startups'],desc:'Pitch competitions, startup workshops, and Raleigh tech ecosystem connections.',members:120,joined:false},
-  {name:'ACM Computing Club',emoji:'👨‍💻',color:'#e8f0fb',category:'tech',tags:['tag-blue'],tagLabels:['Technology'],desc:'Weekly coding projects, hackathons, and career workshops for all skill levels.',members:48,joined:false},
-  {name:'Model UN',emoji:'🌍',color:'#fce8e8',category:'consulting',tags:['tag-red','tag-blue'],tagLabels:['Service','Global'],desc:'Debate global issues, represent countries, and develop diplomatic skills.',members:33,joined:false},
+  {name:'Finance & Consulting Club',emoji:'📈',color:'#e8f0fb',category:'consulting',tags:['tag-blue','tag-gold'],tagLabels:['Finance','Consulting'],desc:'Case competitions, mock interviews with Big 4, and finance industry networking events every semester.',members:80,rec:true},
+  {name:'Poole Accounting Society',emoji:'🏛️',color:'#fff3cd',category:'accounting',tags:['tag-gold'],tagLabels:['Accounting'],desc:'Open to all accounting students. Networking, exam prep, and career workshops with Poole faculty.',members:55,rec:true},
+  {name:'NC State Basketball Supporters',emoji:'🐺',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports','Spirit'],desc:'Official student supporter club. Watch parties, courtside access, and game day events all semester.',members:210,rec:true},
+  {name:'Black Business Students Assoc.',emoji:'✊',color:'#f3e8ff',category:'accounting',tags:['tag-purple','tag-gold'],tagLabels:['Business','Diversity'],desc:'Supporting Black students in business. Professional development, mentorship, and community building.',members:48,rec:true},
+  {name:'Data Analytics Club',emoji:'📉',color:'#e8f5e9',category:'tech',tags:['tag-blue','tag-green'],tagLabels:['Analytics','Tech'],desc:'Excel, Tableau, and Power BI workshops for data-driven students.',members:67,rec:false},
+  {name:'Entrepreneurship Society',emoji:'🚀',color:'#e8f5e9',category:'consulting',tags:['tag-green','tag-gold'],tagLabels:['Business','Startups'],desc:'Pitch competitions, startup workshops, and Raleigh tech ecosystem connections.',members:120,rec:false},
+  {name:'ACM Computing Club',emoji:'👨‍💻',color:'#e8f0fb',category:'tech',tags:['tag-blue'],tagLabels:['Technology'],desc:'Weekly coding projects, hackathons, and career workshops for all skill levels.',members:48,rec:false},
+  {name:'Model UN',emoji:'🌍',color:'#fce8e8',category:'consulting',tags:['tag-red','tag-blue'],tagLabels:['Service','Global'],desc:'Debate global issues, represent countries, and develop diplomatic skills.',members:33,rec:false},
+  {name:'Wolfpack Runners',emoji:'🏃',color:'#e8f5e9',category:'sports',tags:['tag-green'],tagLabels:['Sports'],desc:'Training runs, 5K sign-ups, and a supportive fitness community for all paces.',members:95,rec:false},
 ];
 
-// ── EVENTS DATA ──
+// ── EVENTS DATA (rec=true = not registered yet, show first with badge) ──
 const events=[
-  {name:'Deloitte Digital Launchpad',emoji:'💼',color:'#e8f0fb',category:'workshop',tags:['tag-blue','tag-gold'],tagLabels:['Consulting','Recruiting'],desc:'4-session Deloitte-led program covering consulting, data analysis, and cloud platforms. Direct recruiting pipeline.',date:'Sessions every 2 weeks',registered:true},
-  {name:'Spring Involvement Fair',emoji:'🎪',color:'#fce8e8',category:'social',tags:['tag-red'],tagLabels:['Social'],desc:'Meet reps from 200+ clubs on the Brickyard. Free food, merch, and a chance to find your community.',date:'Apr 20 · 11am–3pm',registered:false},
-  {name:'BAP Big 4 Recruiting Panel',emoji:'🏦',color:'#fff8e1',category:'recruiting',tags:['tag-gold','tag-blue'],tagLabels:['Recruiting','Accounting'],desc:'Network with Deloitte, PwC, EY, and KPMG representatives. Open to all Poole students.',date:'Apr 22 · 7:00 PM · Nelson Hall',registered:true},
-  {name:'CPA Exam Info Session',emoji:'📝',color:'#e8f5e9',category:'workshop',tags:['tag-green','tag-gold'],tagLabels:['Workshop','Accounting'],desc:'Learn about the CPA exam pathway, eligibility, and preparation resources from Poole faculty.',date:'Apr 24 · 5:00 PM · Nelson 2210',registered:false},
-  {name:'Mock Interview Workshop',emoji:'🎤',color:'#f3e8ff',category:'recruiting',tags:['tag-purple','tag-blue'],tagLabels:['Recruiting','Career'],desc:'Practice behavioral and technical interviews with Poole alumni and career coaches.',date:'Apr 16 · 4:00 PM · Talley SC',registered:false},
-  {name:'Intramural Basketball Tournament',emoji:'🏆',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports'],desc:'End-of-semester intramural tournament. All club teams compete for the Wolfpack Cup.',date:'Apr 30 · Carmichael Gym',registered:true},
+  {name:'BAP Big 4 Recruiting Panel',emoji:'🏦',color:'#fff8e1',category:'recruiting',tags:['tag-gold','tag-blue'],tagLabels:['Recruiting','Accounting'],desc:'Network with Deloitte, PwC, EY, and KPMG reps. Open to all Poole students — great follow-up to Launchpad.',date:'Apr 22 · 7:00 PM · Nelson Hall',registered:false,rec:true},
+  {name:'Mock Interview Workshop',emoji:'🎤',color:'#f3e8ff',category:'recruiting',tags:['tag-purple','tag-blue'],tagLabels:['Recruiting','Career'],desc:'Practice behavioral and technical interviews with Poole alumni and career coaches. Sign up for a 20-min slot.',date:'Apr 16 · 4:00 PM · Talley SC',registered:false,rec:true},
+  {name:'CPA Exam Info Session',emoji:'📝',color:'#e8f5e9',category:'workshop',tags:['tag-green','tag-gold'],tagLabels:['Workshop','Accounting'],desc:'Learn about the CPA exam pathway, eligibility, and preparation resources from Poole faculty.',date:'Apr 24 · 5:00 PM · Nelson 2210',registered:false,rec:true},
+  {name:'Spring Involvement Fair',emoji:'🎪',color:'#fce8e8',category:'social',tags:['tag-red'],tagLabels:['Social'],desc:'Meet reps from 200+ clubs on the Brickyard. Free food, merch, and a chance to discover new orgs.',date:'Apr 20 · 11am–3pm · The Brickyard',registered:false,rec:true},
+  {name:'Deloitte Digital Launchpad',emoji:'💼',color:'#e8f0fb',category:'workshop',tags:['tag-blue','tag-gold'],tagLabels:['Consulting','Recruiting'],desc:'4-session Deloitte-led program covering consulting, data analysis, and cloud platforms.',date:'Sessions every 2 weeks',registered:true,rec:false},
+  {name:'Intramural Basketball Tournament',emoji:'🏆',color:'#fce8e8',category:'sports',tags:['tag-red'],tagLabels:['Sports'],desc:'End-of-semester intramural tournament. All club teams compete for the Wolfpack Cup.',date:'Apr 30 · Carmichael Gym',registered:true,rec:false},
 ];
 
 let clubFilter='all', eventFilter='all';
 
+function cardHTML(c, isEvent){
+  const recBadge = c.rec ? `<div style="display:inline-block;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:8px;">⭐ Recommended for You</div>` : '';
+  const dateBadge = isEvent ? `<div class="event-date-badge">📅 ${c.date}</div>` : '';
+  const border = c.rec ? 'border:2px solid var(--blue-bg);' : '';
+  const action = isEvent
+    ? (c.registered ? `<span class="btn-joined">✓ Registered</span>` : `<button class="btn-join" onclick="joinItem(this,'${c.name}')">Register</button>`)
+    : (c.joined     ? `<span class="btn-joined">✓ Joined</span>`      : `<button class="btn-join" onclick="joinItem(this,'${c.name}')">Join</button>`);
+  const meta = isEvent ? `<span></span>` : `<div class="member-count">👥 ${c.members} members</div>`;
+  return `<div class="card" style="${border}">
+    <div class="card-banner" style="background:${c.color};">${c.emoji}</div>
+    <div class="card-body">
+      ${recBadge}${dateBadge}
+      <div class="card-tags">${c.tags.map((t,i)=>`<span class="tag ${t}">${c.tagLabels[i]}</span>`).join('')}</div>
+      <h3>${c.name}</h3><p>${c.desc}</p>
+      <div class="card-footer">${meta}${action}</div>
+    </div>
+  </div>`;
+}
+
 function renderClubs(list){
   const g=document.getElementById('clubsGrid');
   if(!list.length){g.innerHTML='<p style="color:var(--text-muted);padding:20px;">No clubs found.</p>';return;}
-  g.innerHTML=list.map(c=>`
-    <div class="card">
-      <div class="card-banner" style="background:${c.color};">${c.emoji}</div>
-      <div class="card-body">
-        <div class="card-tags">${c.tags.map((t,i)=>`<span class="tag ${t}">${c.tagLabels[i]}</span>`).join('')}</div>
-        <h3>${c.name}</h3><p>${c.desc}</p>
-        <div class="card-footer">
-          <div class="member-count">👥 ${c.members} members</div>
-          ${c.joined?`<span class="btn-joined">✓ Joined</span>`:`<button class="btn-join" onclick="joinItem(this,'${c.name}')">Join</button>`}
-        </div>
-      </div>
-    </div>`).join('');
+  const sorted=[...list.filter(x=>x.rec),...list.filter(x=>!x.rec)];
+  g.innerHTML=sorted.map(c=>cardHTML(c,false)).join('');
 }
-
 function renderEvents(list){
   const g=document.getElementById('eventsGrid');
   if(!list.length){g.innerHTML='<p style="color:var(--text-muted);padding:20px;">No events found.</p>';return;}
-  g.innerHTML=list.map(e=>`
-    <div class="card event-card">
-      <div class="card-banner" style="background:${e.color};">${e.emoji}</div>
-      <div class="card-body">
-        <div class="event-date-badge">📅 ${e.date}</div>
-        <div class="card-tags">${e.tags.map((t,i)=>`<span class="tag ${t}">${e.tagLabels[i]}</span>`).join('')}</div>
-        <h3>${e.name}</h3><p>${e.desc}</p>
-        <div class="card-footer">
-          <span></span>
-          ${e.registered?`<span class="btn-joined">✓ Registered</span>`:`<button class="btn-join" onclick="joinItem(this,'${e.name}')">Register</button>`}
-        </div>
-      </div>
-    </div>`).join('');
+  const sorted=[...list.filter(x=>x.rec),...list.filter(x=>!x.rec)];
+  g.innerHTML=sorted.map(e=>cardHTML(e,true)).join('');
 }
-
 function filterClubs(q){
   const query=q.toLowerCase();
   let list=clubs.filter(c=>clubFilter==='all'||c.category===clubFilter);
@@ -901,21 +905,91 @@ function joinItem(btn,name){
 renderClubs(clubs);
 renderEvents(events);
 
-// ── MESSAGING ──
-function setThread(el,name,emoji,bg,sub){
-  document.querySelectorAll('.msg-thread').forEach(t=>t.classList.remove('active'));
-  el.classList.add('active');
-  document.getElementById('chatName').textContent=name;
-  document.getElementById('chatSub').textContent=sub;
-  const av=document.getElementById('chatAvatar'); av.textContent=emoji; av.style.background=bg;
-  const badge=el.querySelector('.msg-unread'); if(badge) badge.remove();
+// ── MESSAGING THREAD DATA ──
+const DJ_AV = `<div class="bubble-avatar" style="background:var(--red);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;">DJ</div>`;
+function b(avatar,bg,name,text,time,mine=false){
+  return `<div class="msg-bubble-wrap${mine?' mine':''}">
+    ${mine?DJ_AV:`<div class="bubble-avatar" style="background:${bg};font-size:1rem;">${avatar}</div>`}
+    <div><div class="bubble ${mine?'bubble-mine':'bubble-other'}">${text}</div>
+    <div class="bubble-time">${mine?'You':name} · ${time}</div></div>
+  </div>`;
 }
+
+const threads={
+  'bap-general':{
+    name:'Beta Alpha Psi — General', emoji:'📊', bg:'#fff8e1',
+    sub:'34 members · Open channel',
+    html:[
+      b('📊','#fff8e1','President Aisha','Hey BAP fam! Quick reminder — chapter meeting this <strong>Tuesday at 6pm in Hillsborough 12</strong>. We\'re going over the Big 4 panel agenda and assigning speaking roles. Don\'t be late!','9:45 AM'),
+      b('🧑','#e8f0fb','VP Marcus','Also need 3 volunteers to help set up the room by 5:30. Reply here if you can make it early — much appreciated 🙏','9:52 AM'),
+      b('😊','#e8f5e9','Treasurer Leah','I\'ll be there at 5:30! Also dropping the updated Q2 budget summary in the shared Drive folder tonight so everyone can review before the meeting.','10:03 AM'),
+      b('','','','Down to help set up at 5:30 too. Also already have a few questions ready for the Deloitte rep — been thinking about it since the Launchpad sessions 📋','10:08 AM',true),
+      b('📊','#fff8e1','President Aisha','That kind of prep is exactly what makes our chapter stand out. See everyone Tuesday 💪','10:11 AM'),
+    ].join('')
+  },
+  'bap-exec':{
+    name:'BAP Exec Board 🔒', emoji:'🔒', bg:'#fce8e8',
+    sub:'5 officers · Private exec channel',
+    html:`<div style="background:#fff3cd;border:1px solid #ffe082;border-radius:8px;padding:10px 14px;font-size:0.82rem;color:var(--gold);display:flex;align-items:center;gap:8px;margin-bottom:16px;"><strong>🔒 Private Channel</strong> — Visible to BAP executive board officers only.</div>`+[
+      b('📊','#fff8e1','President Aisha','Hey exec team — before Tuesday I want to assign someone to open the Big 4 panel with a 90-second chapter intro. DJ, your Deloitte Launchpad experience is a perfect setup. Would you be up for it?','8:30 AM'),
+      b('🧑','#e8f0fb','VP Marcus','Seconded. Sets the right tone and shows the reps we have members with real consulting exposure already.','8:44 AM'),
+      b('😊','#e8f5e9','Treasurer Leah','Agree! Also I\'ll send the catering form to the group by Thursday EOD so we can confirm the food order in time.','8:51 AM'),
+      b('','','','Happy to open it. I\'ll cover a quick chapter overview, our Big 4 placement rate, and tie it into the Launchpad — should land well with the Deloitte reps.','9:02 AM',true),
+      b('📊','#fff8e1','President Aisha','Perfect. I\'ll add you to the run-of-show doc now. Marcus, can you draft a morning-of text blast to all members? Something short and punchy.','9:10 AM'),
+      b('🧑','#e8f0fb','VP Marcus','On it. Thinking: "BAP Big 4 Panel TONIGHT — 7pm Nelson Hall. Don\'t miss it 🎯" — DJ, want me to mention your Launchpad connection in the blast?','9:18 AM'),
+      b('','','','Keep the blast simple — just the essentials. Save the Launchpad angle for the intro itself, more impact that way.','9:22 AM',true),
+    ].join('')
+  },
+  'basketball':{
+    name:'Club Basketball', emoji:'🏀', bg:'#fce8e8',
+    sub:'22 players · Practice Wed & Fri',
+    html:[
+      b('🏀','#fce8e8','Coach Terrell','What\'s good team — confirmed with Rec Sports. <strong>Friday practice is Court B at Carmichael, 5–7pm.</strong> First 30 minutes is game film, then live scrimmage. Be on time, doors lock at 5.','2:15 PM'),
+      b('😄','#e8f5e9','Jordan #5','Court B let\'s gooo 🙌 I\'ll remind the guys in my dorm.','2:28 PM'),
+      b('🏃','#fff3cd','Marcus #11','Coach are we still running the same press break or switching it up? Me and Tre been working on a new trap rotation in open gym.','2:35 PM'),
+      b('','','','We should def run the trap — been clicking in 3s. I can walk through it with Tre before practice if we get there early.','2:40 PM',true),
+      b('🏀','#fce8e8','Coach Terrell','That\'s what I like to hear. We\'ll carve out 20 mins Friday for the trap rotation. Come ready to move. And hydrate beforehand 💧','2:47 PM'),
+      b('😄','#e8f5e9','Jordan #5','DJ and Tre about to cook on em 🍳 see y\'all Friday','2:51 PM'),
+    ].join('')
+  },
+  'launchpad':{
+    name:'Deloitte Digital Launchpad', emoji:'💼', bg:'#e8f0fb',
+    sub:'38 students · Tyler Ellis & Prof. Kraft',
+    html:[
+      b('💼','#e8f0fb','Tyler Ellis','Hi everyone! With Session 3 coming up, please make sure you\'ve <strong>read the business process automation case brief</strong> — we\'re diving straight in. Also, a few of you still haven\'t filled out the dietary survey. Please do that ASAP so we can confirm dinner!','11:00 AM'),
+      b('👨‍🏫','#f3e8ff','Prof. Kraft','Building on Tyler\'s note — come with specific questions about the case. The Deloitte instructors will do a live breakdown and active participation is noted. It carries weight on the recruiting side.','11:18 AM'),
+      b('🧑','#e8f0fb','Priya S.','Quick Q — is the case brief the same PDF from the email or is there an updated version on Moodle?','11:24 AM'),
+      b('💼','#e8f0fb','Tyler Ellis','Same PDF! Subject line was "Session 3 Pre-Read" — check your NCSU inbox. Can\'t find it? Reply here and I\'ll forward.','11:27 AM'),
+      b('','','','Already read through it — the ServiceNow workflow automation section is really eye-opening. Didn\'t realize how much of the audit prep cycle could be streamlined. Super relevant for accounting.','11:33 AM',true),
+      b('👨‍🏫','#f3e8ff','Prof. Kraft','That\'s exactly the kind of cross-disciplinary thinking we want to see, DJ. Bring that observation up during the session — the Deloitte team will engage with it.','11:37 AM'),
+    ].join('')
+  },
+};
+
+function loadThread(id,el){
+  if(el){
+    document.querySelectorAll('.msg-thread').forEach(t=>t.classList.remove('active'));
+    el.classList.add('active');
+    const badge=el.querySelector('.msg-unread'); if(badge) badge.remove();
+  }
+  const t=threads[id];
+  document.getElementById('chatName').textContent=t.name;
+  document.getElementById('chatSub').textContent=t.sub;
+  const av=document.getElementById('chatAvatar');
+  av.textContent=t.emoji; av.style.background=t.bg;
+  av.style.fontSize=id==='bap-exec'?'1rem':'1.3rem';
+  document.getElementById('chatBody').innerHTML=t.html;
+  document.getElementById('chatBody').scrollTop=9999;
+  document.getElementById('msgInput').placeholder=`Send a message to ${t.name.replace(' 🔒','')}…`;
+}
+loadThread('bap-general',null);
+
 function handleMsgKey(e){if(e.key==='Enter'&&!e.shiftKey){e.preventDefault();sendMsg();}}
 function sendMsg(){
   const input=document.getElementById('msgInput'); const text=input.value.trim(); if(!text) return;
   const body=document.getElementById('chatBody'); const wrap=document.createElement('div');
   wrap.className='msg-bubble-wrap mine';
-  wrap.innerHTML=`<div class="bubble-avatar" style="background:var(--red);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.8rem;">DJ</div><div><div class="bubble bubble-mine">${text}</div><div class="bubble-time">You · Just now</div></div>`;
+  wrap.innerHTML=`${DJ_AV}<div><div class="bubble bubble-mine">${text}</div><div class="bubble-time">You · Just now</div></div>`;
   body.appendChild(wrap); input.value=''; body.scrollTop=body.scrollHeight;
 }
 
