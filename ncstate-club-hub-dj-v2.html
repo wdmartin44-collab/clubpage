@@ -431,6 +431,17 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 
       <!-- CLUBS TAB -->
       <div id="explore-clubs">
+        <!-- Recommended strip -->
+        <div style="background:var(--blue-bg);border:1px solid #c5d9f5;border-radius:var(--radius);padding:20px 24px;margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <span style="color:var(--blue);font-size:1rem;">ℹ️</span>
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:var(--blue);">Recommended for You</span>
+            <span style="font-size:0.8rem;color:var(--text-muted);margin-left:4px;">— Based on Accounting · Business · Basketball</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" id="clubsRecGrid"></div>
+        </div>
+        <!-- All clubs -->
+        <div class="section-header"><div class="section-title">All Clubs</div></div>
         <div class="search-bar">
           <div class="search-input-wrap">
             <span class="search-icon">🔍</span>
@@ -447,6 +458,17 @@ body{font-family:'Source Sans 3',sans-serif;font-weight:400;color:var(--text);ba
 
       <!-- EVENTS TAB -->
       <div id="explore-events" style="display:none;">
+        <!-- Recommended strip -->
+        <div style="background:var(--blue-bg);border:1px solid #c5d9f5;border-radius:var(--radius);padding:20px 24px;margin-bottom:28px;">
+          <div style="display:flex;align-items:center;gap:8px;margin-bottom:16px;">
+            <span style="color:var(--blue);font-size:1rem;">ℹ️</span>
+            <span style="font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.9rem;color:var(--blue);">Recommended for You</span>
+            <span style="font-size:0.8rem;color:var(--text-muted);margin-left:4px;">— Based on Accounting · Recruiting · Career Development</span>
+          </div>
+          <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:14px;" id="eventsRecGrid"></div>
+        </div>
+        <!-- All events -->
+        <div class="section-header"><div class="section-title">All Events</div></div>
         <div class="search-bar">
           <div class="search-input-wrap">
             <span class="search-icon">🔍</span>
@@ -839,10 +861,9 @@ const events=[
 
 let clubFilter='all', eventFilter='all';
 
-function cardHTML(c, isEvent){
-  const recBadge = c.rec ? `<div style="display:inline-block;background:var(--blue);color:#fff;font-family:'Montserrat',sans-serif;font-weight:700;font-size:0.65rem;letter-spacing:0.06em;text-transform:uppercase;padding:2px 8px;border-radius:4px;margin-bottom:8px;">⭐ Recommended for You</div>` : '';
+function cardHTML(c, isEvent, showBadge=false){
   const dateBadge = isEvent ? `<div class="event-date-badge">📅 ${c.date}</div>` : '';
-  const border = c.rec ? 'border:2px solid var(--blue-bg);' : '';
+  const border = showBadge ? 'border:2px solid var(--blue-bg);' : '';
   const action = isEvent
     ? (c.registered ? `<span class="btn-joined">✓ Registered</span>` : `<button class="btn-join" onclick="joinItem(this,'${c.name}')">Register</button>`)
     : (c.joined     ? `<span class="btn-joined">✓ Joined</span>`      : `<button class="btn-join" onclick="joinItem(this,'${c.name}')">Join</button>`);
@@ -850,7 +871,7 @@ function cardHTML(c, isEvent){
   return `<div class="card" style="${border}">
     <div class="card-banner" style="background:${c.color};">${c.emoji}</div>
     <div class="card-body">
-      ${recBadge}${dateBadge}
+      ${dateBadge}
       <div class="card-tags">${c.tags.map((t,i)=>`<span class="tag ${t}">${c.tagLabels[i]}</span>`).join('')}</div>
       <h3>${c.name}</h3><p>${c.desc}</p>
       <div class="card-footer">${meta}${action}</div>
@@ -861,26 +882,49 @@ function cardHTML(c, isEvent){
 function renderClubs(list){
   const g=document.getElementById('clubsGrid');
   if(!list.length){g.innerHTML='<p style="color:var(--text-muted);padding:20px;">No clubs found.</p>';return;}
-  const sorted=[...list.filter(x=>x.rec),...list.filter(x=>!x.rec)];
-  g.innerHTML=sorted.map(c=>cardHTML(c,false)).join('');
+  // rec grid only on unfiltered all view
+  const recGrid=document.getElementById('clubsRecGrid');
+  const recItems=clubs.filter(x=>x.rec);
+  recGrid.innerHTML=recItems.map(c=>cardHTML(c,false,false)).join('');
+  // main grid: non-rec only when showing all, otherwise filtered list
+  g.innerHTML=list.filter(c=>!c.rec).map(c=>cardHTML(c,false,false)).join('');
 }
 function renderEvents(list){
   const g=document.getElementById('eventsGrid');
   if(!list.length){g.innerHTML='<p style="color:var(--text-muted);padding:20px;">No events found.</p>';return;}
-  const sorted=[...list.filter(x=>x.rec),...list.filter(x=>!x.rec)];
-  g.innerHTML=sorted.map(e=>cardHTML(e,true)).join('');
+  const recGrid=document.getElementById('eventsRecGrid');
+  const recItems=events.filter(x=>x.rec);
+  recGrid.innerHTML=recItems.map(e=>cardHTML(e,true,false)).join('');
+  g.innerHTML=list.filter(e=>!e.rec).map(e=>cardHTML(e,true,false)).join('');
 }
 function filterClubs(q){
   const query=q.toLowerCase();
   let list=clubs.filter(c=>clubFilter==='all'||c.category===clubFilter);
   if(query) list=list.filter(c=>c.name.toLowerCase().includes(query)||c.desc.toLowerCase().includes(query));
-  renderClubs(list);
+  const recSection=document.querySelector('#explore-clubs > div:first-child');
+  const g=document.getElementById('clubsGrid');
+  if(query||clubFilter!=='all'){
+    // searching or filtering — hide rec strip, show all matches in main grid
+    recSection.style.display='none';
+    g.innerHTML=list.map(c=>cardHTML(c,false)).join('');
+  } else {
+    recSection.style.display='block';
+    g.innerHTML=list.filter(c=>!c.rec).map(c=>cardHTML(c,false)).join('');
+  }
 }
 function filterEvents(q){
   const query=q.toLowerCase();
   let list=events.filter(e=>eventFilter==='all'||e.category===eventFilter);
   if(query) list=list.filter(e=>e.name.toLowerCase().includes(query)||e.desc.toLowerCase().includes(query));
-  renderEvents(list);
+  const recSection=document.querySelector('#explore-events > div:first-child');
+  const g=document.getElementById('eventsGrid');
+  if(query||eventFilter!=='all'){
+    recSection.style.display='none';
+    g.innerHTML=list.map(e=>cardHTML(e,true)).join('');
+  } else {
+    recSection.style.display='block';
+    g.innerHTML=list.filter(e=>!e.rec).map(e=>cardHTML(e,true)).join('');
+  }
 }
 function setClubFilter(cat,btn){
   clubFilter=cat;
@@ -920,23 +964,23 @@ const threads={
     name:'Beta Alpha Psi — General', emoji:'📊', bg:'#fff8e1',
     sub:'34 members · Open channel',
     html:[
-      b('📊','#fff8e1','President Aisha','Hey BAP fam! Quick reminder — chapter meeting this <strong>Tuesday at 6pm in Hillsborough 12</strong>. We\'re going over the Big 4 panel agenda and assigning speaking roles. Don\'t be late!','9:45 AM'),
-      b('🧑','#e8f0fb','VP Marcus','Also need 3 volunteers to help set up the room by 5:30. Reply here if you can make it early — much appreciated 🙏','9:52 AM'),
-      b('😊','#e8f5e9','Treasurer Leah','I\'ll be there at 5:30! Also dropping the updated Q2 budget summary in the shared Drive folder tonight so everyone can review before the meeting.','10:03 AM'),
+      b('📊','#fff8e1','Rohith Varadaraju','Hey BAP fam! Quick reminder — chapter meeting this <strong>Tuesday at 6pm in Hillsborough 12</strong>. We\'re going over the Big 4 panel agenda and assigning speaking roles. Don\'t be late!','9:45 AM'),
+      b('🧑','#e8f0fb','Eial Nisman','Also need 3 volunteers to help set up the room by 5:30. Reply here if you can make it early — much appreciated 🙏','9:52 AM'),
+      b('😊','#e8f5e9','Caroline Levinson','I\'ll be there at 5:30! Also dropping the updated Q2 budget summary in the shared Drive folder tonight so everyone can review before the meeting.','10:03 AM'),
       b('','','','Down to help set up at 5:30 too. Also already have a few questions ready for the Deloitte rep — been thinking about it since the Launchpad sessions 📋','10:08 AM',true),
-      b('📊','#fff8e1','President Aisha','That kind of prep is exactly what makes our chapter stand out. See everyone Tuesday 💪','10:11 AM'),
+      b('📊','#fff8e1','Rohith Varadaraju','That kind of prep is exactly what makes our chapter stand out. See everyone Tuesday 💪','10:11 AM'),
     ].join('')
   },
   'bap-exec':{
     name:'BAP Exec Board 🔒', emoji:'🔒', bg:'#fce8e8',
     sub:'5 officers · Private exec channel',
     html:`<div style="background:#fff3cd;border:1px solid #ffe082;border-radius:8px;padding:10px 14px;font-size:0.82rem;color:var(--gold);display:flex;align-items:center;gap:8px;margin-bottom:16px;"><strong>🔒 Private Channel</strong> — Visible to BAP executive board officers only.</div>`+[
-      b('📊','#fff8e1','President Aisha','Hey exec team — before Tuesday I want to assign someone to open the Big 4 panel with a 90-second chapter intro. DJ, your Deloitte Launchpad experience is a perfect setup. Would you be up for it?','8:30 AM'),
-      b('🧑','#e8f0fb','VP Marcus','Seconded. Sets the right tone and shows the reps we have members with real consulting exposure already.','8:44 AM'),
-      b('😊','#e8f5e9','Treasurer Leah','Agree! Also I\'ll send the catering form to the group by Thursday EOD so we can confirm the food order in time.','8:51 AM'),
+      b('📊','#fff8e1','Rohith Varadaraju','Hey exec team — before Tuesday I want to assign someone to open the Big 4 panel with a 90-second chapter intro. DJ, your Deloitte Launchpad experience is a perfect setup. Would you be up for it?','8:30 AM'),
+      b('🧑','#e8f0fb','Eial Nisman','Seconded. Sets the right tone and shows the reps we have members with real consulting exposure already.','8:44 AM'),
+      b('😊','#e8f5e9','Caroline Levinson','Agree! Also I\'ll send the catering form to the group by Thursday EOD so we can confirm the food order in time.','8:51 AM'),
       b('','','','Happy to open it. I\'ll cover a quick chapter overview, our Big 4 placement rate, and tie it into the Launchpad — should land well with the Deloitte reps.','9:02 AM',true),
-      b('📊','#fff8e1','President Aisha','Perfect. I\'ll add you to the run-of-show doc now. Marcus, can you draft a morning-of text blast to all members? Something short and punchy.','9:10 AM'),
-      b('🧑','#e8f0fb','VP Marcus','On it. Thinking: "BAP Big 4 Panel TONIGHT — 7pm Nelson Hall. Don\'t miss it 🎯" — DJ, want me to mention your Launchpad connection in the blast?','9:18 AM'),
+      b('📊','#fff8e1','Rohith Varadaraju','Perfect. I\'ll add you to the run-of-show doc now. Eial, can you draft a morning-of text blast to all members? Something short and punchy.','9:10 AM'),
+      b('🧑','#e8f0fb','Eial Nisman','On it. Thinking: "BAP Big 4 Panel TONIGHT — 7pm Nelson Hall. Don\'t miss it 🎯" — DJ, want me to mention your Launchpad connection in the blast?','9:18 AM'),
       b('','','','Keep the blast simple — just the essentials. Save the Launchpad angle for the intro itself, more impact that way.','9:22 AM',true),
     ].join('')
   },
@@ -944,12 +988,12 @@ const threads={
     name:'Club Basketball', emoji:'🏀', bg:'#fce8e8',
     sub:'22 players · Practice Wed & Fri',
     html:[
-      b('🏀','#fce8e8','Coach Terrell','What\'s good team — confirmed with Rec Sports. <strong>Friday practice is Court B at Carmichael, 5–7pm.</strong> First 30 minutes is game film, then live scrimmage. Be on time, doors lock at 5.','2:15 PM'),
-      b('😄','#e8f5e9','Jordan #5','Court B let\'s gooo 🙌 I\'ll remind the guys in my dorm.','2:28 PM'),
-      b('🏃','#fff3cd','Marcus #11','Coach are we still running the same press break or switching it up? Me and Tre been working on a new trap rotation in open gym.','2:35 PM'),
-      b('','','','We should def run the trap — been clicking in 3s. I can walk through it with Tre before practice if we get there early.','2:40 PM',true),
-      b('🏀','#fce8e8','Coach Terrell','That\'s what I like to hear. We\'ll carve out 20 mins Friday for the trap rotation. Come ready to move. And hydrate beforehand 💧','2:47 PM'),
-      b('😄','#e8f5e9','Jordan #5','DJ and Tre about to cook on em 🍳 see y\'all Friday','2:51 PM'),
+      b('🏀','#fce8e8','Will Martin','What\'s good team — confirmed with Rec Sports. <strong>Friday practice is Court B at Carmichael, 5–7pm.</strong> First 30 minutes is game film, then live scrimmage. Be on time, doors lock at 5.','2:15 PM'),
+      b('😄','#e8f5e9','Rithik Jeyaraman','Court B let\'s gooo 🙌 I\'ll remind the guys in my dorm.','2:28 PM'),
+      b('🏃','#fff3cd','Will Martin','Are we still running the same press break or switching it up? DJ and I been working on a new trap rotation in open gym.','2:35 PM'),
+      b('','','','We should def run the trap — been clicking in 3s. I can walk Rithik through it before practice if we get there early.','2:40 PM',true),
+      b('🏀','#fce8e8','Will Martin','That\'s what I like to hear. We\'ll carve out 20 mins Friday for the trap rotation. Come ready to move. And hydrate beforehand 💧','2:47 PM'),
+      b('😄','#e8f5e9','Rithik Jeyaraman','DJ and Will about to cook on em 🍳 see y\'all Friday','2:51 PM'),
     ].join('')
   },
   'launchpad':{
@@ -958,10 +1002,10 @@ const threads={
     html:[
       b('💼','#e8f0fb','Tyler Ellis','Hi everyone! With Session 3 coming up, please make sure you\'ve <strong>read the business process automation case brief</strong> — we\'re diving straight in. Also, a few of you still haven\'t filled out the dietary survey. Please do that ASAP so we can confirm dinner!','11:00 AM'),
       b('👨‍🏫','#f3e8ff','Prof. Kraft','Building on Tyler\'s note — come with specific questions about the case. The Deloitte instructors will do a live breakdown and active participation is noted. It carries weight on the recruiting side.','11:18 AM'),
-      b('🧑','#e8f0fb','Priya S.','Quick Q — is the case brief the same PDF from the email or is there an updated version on Moodle?','11:24 AM'),
+      b('🧑','#e8f0fb','Rithik Jeyaraman','Quick Q — is the case brief the same PDF from the email or is there an updated version on Moodle?','11:24 AM'),
       b('💼','#e8f0fb','Tyler Ellis','Same PDF! Subject line was "Session 3 Pre-Read" — check your NCSU inbox. Can\'t find it? Reply here and I\'ll forward.','11:27 AM'),
       b('','','','Already read through it — the ServiceNow workflow automation section is really eye-opening. Didn\'t realize how much of the audit prep cycle could be streamlined. Super relevant for accounting.','11:33 AM',true),
-      b('👨‍🏫','#f3e8ff','Prof. Kraft','That\'s exactly the kind of cross-disciplinary thinking we want to see, DJ. Bring that observation up during the session — the Deloitte team will engage with it.','11:37 AM'),
+      b('👨‍🏫','#f3e8ff','Prof. Kraft','That\'s exactly the kind of cross-disciplinary thinking we want to see, DJ Burns. Bring that observation up during the session — the Deloitte team will engage with it.','11:37 AM'),
     ].join('')
   },
 };
